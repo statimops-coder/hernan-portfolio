@@ -1,590 +1,530 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hernan Lopez | Freelance Web Designer Tampa Bay</title>
-    <meta
-      name="description"
-      content="Hernan Lopez is a freelance web designer in Tampa Bay, FL, building modern websites for local service businesses."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --bg: #0a0c12;
-        --surface: #111521;
-        --surface-soft: #151a28;
-        --text: #ffffff;
-        --muted: #b8c0d2;
-        --accent: #00c8b4;
-        --accent-soft: rgba(0, 200, 180, 0.14);
-        --border: rgba(255, 255, 255, 0.1);
-        --max-width: 1120px;
-        --radius: 16px;
-        --shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-        --shadow-hover: 0 22px 50px rgba(0, 0, 0, 0.45);
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hernan Lopez — Web Designer, Tampa Bay</title>
+  <meta name="description" content="Freelance web designer in Tampa Bay. I build the demo before I pitch." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      * {
-        box-sizing: border-box;
-      }
+    :root {
+      --black: #000;
+      --white: #fff;
+      --gray-1: #111;
+      --gray-2: #1a1a1a;
+      --gray-3: #333;
+      --gray-4: #666;
+      --gray-5: #999;
+    }
 
-      html {
-        scroll-behavior: smooth;
-      }
+    html { scroll-behavior: smooth; }
 
-      body {
-        margin: 0;
-        font-family: "Inter", sans-serif;
-        background: radial-gradient(
-            circle at 20% 0%,
-            rgba(0, 200, 180, 0.06),
-            transparent 35%
-          ),
-          radial-gradient(circle at 80% 20%, rgba(0, 200, 180, 0.04), transparent 35%),
-          var(--bg);
-        color: var(--text);
-        line-height: 1.6;
-      }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 3rem;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(8px);
+      transition: border-bottom 0.3s;
+    }
+    nav.scrolled { border-bottom: 1px solid var(--gray-2); }
 
-      img {
-        max-width: 100%;
-      }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
 
-      .container {
-        width: min(var(--max-width), 92%);
-        margin: 0 auto;
-      }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--gray-4);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
 
-      .section {
-        padding: 4.5rem 0;
-      }
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10rem 3rem 4rem;
+      position: relative;
+    }
 
-      .section-heading {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(2rem, 3vw, 2.9rem);
-        line-height: 1.2;
-        margin: 0 0 1rem;
-        letter-spacing: 0.01em;
-      }
+    .hero-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--gray-4);
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
 
-      .section-intro {
-        color: var(--muted);
-        margin: 0 0 2rem;
-        max-width: 720px;
-      }
+    .hero-headline {
+      font-size: clamp(3rem, 8vw, 7.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      max-width: 900px;
+      margin-bottom: 2rem;
+    }
 
-      .reveal {
-        opacity: 0;
-        transform: translateY(24px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-      }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 300;
+      color: var(--gray-4);
+      max-width: 460px;
+      line-height: 1.7;
+    }
 
-      .reveal.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .hero-footer {
+      position: absolute;
+      bottom: 3rem;
+      left: 3rem;
+      right: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
 
-      .site-nav {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        border-bottom: 1px solid transparent;
-      }
+    .hero-stat .stat-num {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .hero-stat .stat-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--gray-4);
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
 
-      .site-nav.scrolled {
-        background: rgba(10, 12, 18, 0.72);
-        border-color: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        box-shadow: 0 8px 26px rgba(0, 0, 0, 0.24);
-      }
+    .scroll-cue {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--gray-4);
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
 
-      .nav-wrap {
-        min-height: 76px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-      }
+    /* SECTION SHARED */
+    section {
+      padding: 8rem 3rem;
+      border-top: 1px solid var(--gray-2);
+    }
 
-      .logo {
-        font-weight: 800;
-        font-size: 1.08rem;
-        letter-spacing: 0.08em;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 0.4rem 0.65rem;
-        background: rgba(255, 255, 255, 0.02);
-      }
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--gray-4);
+      text-transform: uppercase;
+      margin-bottom: 4rem;
+    }
 
-      .nav-right {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
+    /* WORK */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--gray-2);
+      border: 1px solid var(--gray-2);
+    }
 
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
+    .project-card {
+      background: var(--black);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: background 0.2s;
+    }
+    .project-card:hover { background: #050505; }
+    .project-card:last-child {
+      grid-column: 1 / -1;
+    }
 
-      .nav-links a {
-        color: var(--muted);
-        font-weight: 500;
-        transition: color 0.2s ease;
-      }
+    .project-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--gray-3);
+      letter-spacing: 0.1em;
+    }
 
-      .nav-links a:hover,
-      .nav-links a:focus-visible {
-        color: var(--text);
-      }
+    .project-name {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
 
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.45rem;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        padding: 0.72rem 1.2rem;
-        font-weight: 600;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease,
-          border-color 0.2s ease;
-      }
+    .project-divider {
+      height: 1px;
+      background: var(--gray-2);
+      border: none;
+    }
 
-      .btn:hover,
-      .btn:focus-visible {
-        transform: translateY(-2px);
-      }
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--gray-4);
+      line-height: 1.6;
+      flex: 1;
+    }
 
-      .btn-primary {
-        background: var(--accent);
-        color: #fff;
-        border-color: transparent;
-        box-shadow: 0 8px 20px rgba(0, 200, 180, 0.25);
-      }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--gray-4);
+      border: 1px solid var(--gray-3);
+      padding: 0.3rem 0.6rem;
+      text-transform: uppercase;
+    }
 
-      .btn-primary:hover,
-      .btn-primary:focus-visible {
-        background: #00ddc8;
-        box-shadow: 0 12px 28px rgba(0, 200, 180, 0.35);
-      }
+    .project-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: opacity 0.2s;
+      align-self: flex-start;
+    }
+    .project-link:hover { opacity: 0.6; }
+    .project-link::after { content: '→'; }
 
-      .btn-secondary {
-        color: var(--text);
-        background: rgba(255, 255, 255, 0.02);
-      }
+    /* ABOUT */
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
 
-      .btn-secondary:hover,
-      .btn-secondary:focus-visible {
-        border-color: rgba(255, 255, 255, 0.35);
-        background: rgba(255, 255, 255, 0.06);
-      }
+    .about-deco {
+      font-size: clamp(6rem, 15vw, 14rem);
+      font-weight: 700;
+      color: var(--gray-2);
+      letter-spacing: -0.05em;
+      line-height: 1;
+      user-select: none;
+    }
 
-      .hero {
-        position: relative;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        overflow: clip;
-      }
+    .about-content h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
 
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.09) 1px, transparent 0);
-        background-size: 22px 22px;
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 85%);
-        pointer-events: none;
-        opacity: 0.4;
-        animation: drift 16s linear infinite;
-      }
+    .about-content p {
+      color: var(--gray-4);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      max-width: 520px;
+    }
 
-      .hero::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image: linear-gradient(rgba(0, 200, 180, 0.11) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(0, 200, 180, 0.11) 1px, transparent 1px);
-        background-size: 68px 68px;
-        mask-image: radial-gradient(circle at 50% 30%, rgba(0, 0, 0, 0.9), transparent 72%);
-        opacity: 0.24;
-        pointer-events: none;
-      }
+    .stats-row {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--gray-2);
+    }
+    .stat-item {
+      flex: 1;
+      padding: 1.5rem;
+      border-right: 1px solid var(--gray-2);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item .s-num {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .stat-item .s-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      color: var(--gray-4);
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+    }
 
-      @keyframes drift {
-        from {
-          transform: translateY(0);
-        }
-        to {
-          transform: translateY(22px);
-        }
-      }
+    /* CONTACT */
+    .contact-inner {
+      max-width: 700px;
+    }
+    .contact-inner .contact-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--gray-4);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .contact-inner h2 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      margin-bottom: 3rem;
+    }
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .contact-btn {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      border: 1px solid var(--white);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .contact-btn:hover {
+      background: var(--white);
+      color: var(--black);
+    }
 
-      .hero-inner {
-        position: relative;
-        z-index: 1;
-        max-width: 860px;
-        padding: 5.5rem 0 4.5rem;
-      }
+    /* FOOTER */
+    footer {
+      padding: 2rem 3rem;
+      border-top: 1px solid var(--gray-2);
+      text-align: center;
+    }
+    footer span {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--gray-3);
+      text-transform: uppercase;
+    }
 
-      .hero h1 {
-        margin: 0;
-        font-family: "Playfair Display", serif;
-        font-size: clamp(2.15rem, 5.7vw, 4.75rem);
-        line-height: 1.05;
-        letter-spacing: 0.015em;
-        text-wrap: balance;
-      }
+    /* FADE IN */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in.delay-1 { transition-delay: 0.1s; }
+    .fade-in.delay-2 { transition-delay: 0.2s; }
+    .fade-in.delay-3 { transition-delay: 0.3s; }
 
-      .hero p {
-        margin: 1.2rem 0 0;
-        color: var(--muted);
-        font-size: clamp(1.04rem, 2.2vw, 1.22rem);
-        max-width: 700px;
-      }
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .hero { padding: 8rem 1.5rem 4rem; }
+      .hero-footer { left: 1.5rem; right: 1.5rem; bottom: 2rem; }
+      section { padding: 5rem 1.5rem; }
+      .work-grid { grid-template-columns: 1fr; }
+      .project-card:last-child { grid-column: auto; }
+      .about-inner { grid-template-columns: 1fr; gap: 1rem; }
+      .about-deco { display: none; }
+      .stats-row { flex-direction: column; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--gray-2); }
+      .stat-item:last-child { border-bottom: none; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
 
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.85rem;
-        margin-top: 1.9rem;
-      }
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">HL</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-      .work-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-label fade-in">Freelance Web Designer &nbsp;·&nbsp; Tampa Bay &nbsp;·&nbsp; 2026</p>
+    <h1 class="hero-headline fade-in delay-1">I build the website<br>before I pitch.</h1>
+    <p class="hero-sub fade-in delay-2">I research your business. I build the demo. Then I reach out — so you see results before you decide.</p>
+    <div class="hero-footer">
+      <div class="hero-stat fade-in delay-3">
+        <div class="stat-num">03</div>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+      <div class="scroll-cue">Scroll</div>
+    </div>
+  </section>
 
-      .card {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        overflow: hidden;
-        transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      }
+  <!-- WORK -->
+  <section id="work">
+    <p class="section-label fade-in">Selected Work</p>
+    <div class="work-grid">
 
-      .card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-hover);
-        border-color: rgba(0, 200, 180, 0.35);
-      }
+      <div class="project-card fade-in">
+        <span class="project-num">01</span>
+        <h3 class="project-name">Copperleaf Lawn<br>&amp; Landscape</h3>
+        <hr class="project-divider" />
+        <p class="project-desc">Full redesign for a Tampa Bay landscaping company. Modern, mobile-first, built to win local search.</p>
+        <div class="project-tags">
+          <span class="tag">Lawn Care</span>
+          <span class="tag">Responsive</span>
+          <span class="tag">Local SEO</span>
+        </div>
+        <a href="https://statimops-coder.github.io/copperleaf-demo/" target="_blank" class="project-link">View Live</a>
+      </div>
 
-      .thumb {
-        height: 160px;
-        display: grid;
-        place-items: center;
-        font-size: 2rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        color: rgba(255, 255, 255, 0.96);
-        background: linear-gradient(135deg, rgba(0, 200, 180, 0.75), #0f2230 75%);
-      }
+      <div class="project-card fade-in delay-1">
+        <span class="project-num">02</span>
+        <h3 class="project-name">Rosenthal<br>Chiropractic</h3>
+        <hr class="project-divider" />
+        <p class="project-desc">Credibility-first design for a chiropractic clinic. Clean, professional, built to convert patients.</p>
+        <div class="project-tags">
+          <span class="tag">Healthcare</span>
+          <span class="tag">Booking</span>
+          <span class="tag">Trust-Focused</span>
+        </div>
+        <a href="https://statimops-coder.github.io/rosenthal-demo/" target="_blank" class="project-link">View Live</a>
+      </div>
 
-      .card-body {
-        padding: 1.2rem;
-      }
+      <div class="project-card fade-in delay-2">
+        <span class="project-num">03</span>
+        <h3 class="project-name">Every Rose Psychiatry</h3>
+        <hr class="project-divider" />
+        <p class="project-desc">Warm, professional online presence for a psychiatric practice in Tampa Bay. Elegant and responsive.</p>
+        <div class="project-tags">
+          <span class="tag">Mental Health</span>
+          <span class="tag">Elegant</span>
+          <span class="tag">Responsive</span>
+        </div>
+        <a href="https://statimops-coder.github.io/everyrose-demo/" target="_blank" class="project-link">View Live</a>
+      </div>
 
-      .card h3 {
-        margin: 0;
-        font-size: 1.1rem;
-      }
+    </div>
+  </section>
 
-      .card p {
-        margin: 0.6rem 0 1rem;
-        color: var(--muted);
-      }
-
-      .card-link {
-        color: var(--accent);
-        font-weight: 600;
-      }
-
-      .card-link:hover,
-      .card-link:focus-visible {
-        text-decoration: underline;
-      }
-
-      .about-grid {
-        display: grid;
-        gap: 1.2rem;
-        align-items: start;
-      }
-
-      .about-text {
-        color: var(--muted);
-      }
-
-      .stats-card {
-        background: linear-gradient(140deg, rgba(0, 200, 180, 0.11), rgba(255, 255, 255, 0.02));
-        border: 1px solid rgba(0, 200, 180, 0.38);
-        border-radius: var(--radius);
-        padding: 1.3rem;
-        box-shadow: var(--shadow);
-      }
-
-      .stats-card h3 {
-        margin: 0 0 0.9rem;
-        font-size: 1.1rem;
-      }
-
-      .stats-list {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 0.7rem;
-      }
-
-      .stats-list li {
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background: rgba(0, 0, 0, 0.18);
-        border-radius: 10px;
-        padding: 0.68rem 0.8rem;
-        font-weight: 500;
-      }
-
-      .contact {
-        text-align: center;
-      }
-
-      .contact p {
-        color: var(--muted);
-        margin: 0 auto 1.2rem;
-        max-width: 660px;
-      }
-
-      .email-link {
-        color: var(--accent);
-        font-size: 1.1rem;
-        font-weight: 600;
-      }
-
-      .email-link:hover,
-      .email-link:focus-visible {
-        text-decoration: underline;
-      }
-
-      .contact-actions {
-        margin-top: 1.2rem;
-        display: flex;
-        justify-content: center;
-        gap: 0.85rem;
-        flex-wrap: wrap;
-      }
-
-      .site-footer {
-        border-top: 1px solid var(--border);
-        padding: 1.2rem 0 1.8rem;
-        color: rgba(255, 255, 255, 0.72);
-        text-align: center;
-        font-size: 0.94rem;
-      }
-
-      @media (max-width: 760px) {
-        .nav-links {
-          display: none;
-        }
-      }
-
-      @media (min-width: 720px) {
-        .section {
-          padding: 5.3rem 0;
-        }
-
-        .work-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .about-grid {
-          grid-template-columns: 1.2fr 1fr;
-          gap: 1.8rem;
-        }
-      }
-
-      @media (min-width: 1024px) {
-        .work-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header class="site-nav" id="top">
-      <div class="container nav-wrap">
-        <a class="logo" href="#top" aria-label="Hernan Lopez home">HL</a>
-        <div class="nav-right">
-          <nav class="nav-links" aria-label="Primary">
-            <a href="#work">Work</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-          </nav>
-          <a class="btn btn-primary" href="#contact">Let's Talk</a>
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label fade-in">About</p>
+    <div class="about-inner">
+      <div class="about-deco fade-in">02</div>
+      <div class="about-content">
+        <h2 class="fade-in">Design that works<br>before the first call.</h2>
+        <p class="fade-in delay-1">I'm Hernan Lopez, a self-taught web designer based in Largo, Florida. My approach: research first, build first, pitch last. When I reach out to a business, I already have a working demo ready. No pitches — just results.</p>
+        <div class="stats-row fade-in delay-2">
+          <div class="stat-item">
+            <div class="s-num">03</div>
+            <div class="s-label">Demos Built</div>
+          </div>
+          <div class="stat-item">
+            <div class="s-num">100%</div>
+            <div class="s-label">Built Before Pitch</div>
+          </div>
+          <div class="stat-item">
+            <div class="s-num">FL</div>
+            <div class="s-label">Tampa Bay</div>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <main>
-      <section class="hero">
-        <div class="container hero-inner reveal">
-          <h1>I build websites before I pitch them.</h1>
-          <p>
-            Freelance web designer in Tampa Bay. I research your business, design your site, then
-            reach out so you can see results before we even talk.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#work">See My Work</a>
-            <a class="btn btn-secondary" href="#contact">Get in Touch</a>
-          </div>
-        </div>
-      </section>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <p class="contact-eyebrow fade-in">Ready to work together?</p>
+      <h2 class="fade-in delay-1">Let's build<br>something.</h2>
+      <div class="contact-links fade-in delay-2">
+        <a href="mailto:nan.dev.ops@gmail.com" class="contact-btn">Email →</a>
+        <a href="https://www.linkedin.com/in/hernan-lopez-ab1575328" target="_blank" class="contact-btn">LinkedIn →</a>
+      </div>
+    </div>
+  </section>
 
-      <section class="section" id="work">
-        <div class="container">
-          <h2 class="section-heading reveal">Recent Work</h2>
-          <div class="work-grid">
-            <article class="card reveal">
-              <div class="thumb" aria-hidden="true">CL</div>
-              <div class="card-body">
-                <h3>Copperleaf Lawn &amp; Landscape</h3>
-                <p>Lawn care company in Tampa Bay</p>
-                <a
-                  class="card-link"
-                  href="https://statimops-coder.github.io/copperleaf-demo/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View Live Site &rarr;</a
-                >
-              </div>
-            </article>
+  <!-- FOOTER -->
+  <footer>
+    <span>Hernan Lopez &nbsp;·&nbsp; Web Design &nbsp;·&nbsp; Tampa Bay &nbsp;·&nbsp; 2026</span>
+  </footer>
 
-            <article class="card reveal">
-              <div class="thumb" aria-hidden="true">RC</div>
-              <div class="card-body">
-                <h3>Rosenthal Chiropractic</h3>
-                <p>Chiropractic wellness center</p>
-                <a
-                  class="card-link"
-                  href="https://statimops-coder.github.io/rosenthal-demo/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View Live Site &rarr;</a
-                >
-              </div>
-            </article>
+  <script>
+    // Nav border on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
 
-            <article class="card reveal">
-              <div class="thumb" aria-hidden="true">ER</div>
-              <div class="card-body">
-                <h3>Every Rose Psychiatry</h3>
-                <p>Mental health practice in Tampa</p>
-                <a
-                  class="card-link"
-                  href="https://statimops-coder.github.io/everyrose-demo/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View Live Site &rarr;</a
-                >
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
+    // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
-      <section class="section" id="about">
-        <div class="container about-grid">
-          <div class="reveal">
-            <h2 class="section-heading">About</h2>
-            <p class="about-text">
-              I'm Hernan, a web designer based in Largo, Florida. I specialize in building modern,
-              high-converting websites for local service businesses. My approach is simple: research
-              first, build second, pitch third so my clients always see real work before they ever
-              commit. Currently studying IT at Keiser University, graduating 2026.
-            </p>
-          </div>
-          <aside class="stats-card reveal" aria-label="Key stats">
-            <h3>Key Stats</h3>
-            <ul class="stats-list">
-              <li>3 Sites Launched</li>
-              <li>Tampa Bay Based</li>
-              <li>Research-First Approach</li>
-              <li>Fast Turnaround</li>
-            </ul>
-          </aside>
-        </div>
-      </section>
+    faders.forEach(el => observer.observe(el));
 
-      <section class="section contact" id="contact">
-        <div class="container reveal">
-          <h2 class="section-heading">Ready to upgrade your online presence?</h2>
-          <p>
-            If you need a modern site that brings in better leads, let's connect and discuss your
-            next project.
-          </p>
-          <a class="email-link" href="mailto:nan.dev.ops@gmail.com">nan.dev.ops@gmail.com</a>
-          <div class="contact-actions">
-            <a
-              class="btn btn-secondary"
-              href="https://www.linkedin.com/in/hernan-lopez-ab1575328"
-              target="_blank"
-              rel="noopener noreferrer"
-              >LinkedIn</a
-            >
-            <a
-              class="btn btn-secondary"
-              href="https://github.com/statimops-coder"
-              target="_blank"
-              rel="noopener noreferrer"
-              >GitHub</a
-            >
-          </div>
-        </div>
-      </section>
-    </main>
+    // Trigger hero elements immediately
+    setTimeout(() => {
+      document.querySelectorAll('.hero .fade-in').forEach(el => el.classList.add('visible'));
+    }, 100);
+  </script>
 
-    <footer class="site-footer">
-      <div class="container">© 2026 Hernan Lopez · Web Design Tampa Bay</div>
-    </footer>
-
-    <script>
-      const nav = document.querySelector(".site-nav");
-      const revealItems = document.querySelectorAll(".reveal");
-
-      const onScroll = () => {
-        nav.classList.toggle("scrolled", window.scrollY > 8);
-      };
-
-      onScroll();
-      window.addEventListener("scroll", onScroll, { passive: true });
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.2, rootMargin: "0px 0px -40px 0px" }
-      );
-
-      revealItems.forEach((item) => observer.observe(item));
-    </script>
-  </body>
+</body>
 </html>
