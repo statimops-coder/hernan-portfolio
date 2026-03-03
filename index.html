@@ -236,6 +236,14 @@
     }
     .project-link:hover { opacity: 0.6; }
     .project-link::after { content: '→'; }
+    .project-link--before { color: var(--gray-4); }
+    .project-link--before::after { content: ' ↗'; }
+
+    .project-actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
 
     /* ABOUT */
     .about-inner {
@@ -425,7 +433,10 @@
           <span class="tag">Mobile-Ready</span>
           <span class="tag">Local Business</span>
         </div>
-        <a href="https://statimops-coder.github.io/copperleaf-demo/" target="_blank" class="project-link">View Site</a>
+        <div class="project-actions">
+          <a href="https://statimops-coder.github.io/copperleaf-demo/" target="_blank" class="project-link">New Site</a>
+          <a href="https://copperleaflawncareservices.com" target="_blank" class="project-link project-link--before">Original</a>
+        </div>
       </div>
 
       <div class="project-card fade-in delay-1">
@@ -438,7 +449,10 @@
           <span class="tag">Professional</span>
           <span class="tag">Trust-Focused</span>
         </div>
-        <a href="https://statimops-coder.github.io/rosenthal-demo/" target="_blank" class="project-link">View Site</a>
+        <div class="project-actions">
+          <a href="https://statimops-coder.github.io/rosenthal-demo/" target="_blank" class="project-link">New Site</a>
+          <a href="https://mrschiro.com" target="_blank" class="project-link project-link--before">Original</a>
+        </div>
       </div>
 
       <div class="project-card fade-in delay-2">
@@ -451,7 +465,10 @@
           <span class="tag">Welcoming</span>
           <span class="tag">Mobile-Ready</span>
         </div>
-        <a href="https://statimops-coder.github.io/every-rose-demo/" target="_blank" class="project-link">View Site</a>
+        <div class="project-actions">
+          <a href="https://statimops-coder.github.io/every-rose-demo/" target="_blank" class="project-link">New Site</a>
+          <a href="https://everyrosepsychiatry.com" target="_blank" class="project-link project-link--before">Original</a>
+        </div>
       </div>
 
     </div>
