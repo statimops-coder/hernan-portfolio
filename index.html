@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hernan Lopez — Designer, Developer, Builder</title>
-  <meta name="description" content="Design, development, deployment — one person, one price. Hernan Lopez builds complete digital products for businesses in Tampa Bay." />
+  <meta name="description"
+    content="Design, development, deployment — one person, one price. Hernan Lopez builds complete digital products for businesses in Tampa Bay." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --black: #000;
-      --white: #fff;
-      --gray-1: #111;
-      --gray-2: #1a1a1a;
-      --gray-3: #333;
-      --gray-4: #666;
-      --gray-5: #999;
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html { scroll-behavior: smooth; }
+    :root {
+      --black: #12100d;
+      --white: #ffffff;
+      --gray-1: #1d1914;
+      --gray-2: #2a241d;
+      --gray-3: #70553b;
+      --gray-4: #c8ccd2;
+      --gray-5: #d7bc98;
+      --mist-1: #152830;
+      --mist-2: #233d47;
+      --mist-3: #d9e4ee;
+      --mist-4: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background: var(--black);
@@ -35,23 +51,43 @@
     /* NAV */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 1.5rem 3rem;
-      background: rgba(0,0,0,0.95);
-      backdrop-filter: blur(8px);
-      transition: border-bottom 0.3s;
+      background: linear-gradient(135deg,
+          rgba(231, 210, 179, 0.24) 0%,
+          rgba(67, 51, 34, 0.44) 52%,
+          rgba(24, 20, 16, 0.66) 100%);
+      border: 1px solid rgba(231, 210, 179, 0.32);
+      border-left: none;
+      border-right: none;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(14px) saturate(130%);
+      -webkit-backdrop-filter: blur(14px) saturate(130%);
+      transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
     }
-    nav.scrolled { border-bottom: 1px solid var(--gray-2); }
+
+    nav.scrolled {
+      border-color: rgba(231, 210, 179, 0.42);
+      border-left: none;
+      border-right: none;
+      background: linear-gradient(135deg,
+          rgba(231, 210, 179, 0.28) 0%,
+          rgba(67, 51, 34, 0.5) 52%,
+          rgba(24, 20, 16, 0.72) 100%);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
 
     .nav-logo {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
       font-size: 1.125rem;
-      color: var(--white);
+      color: var(--mist-4);
       text-decoration: none;
       letter-spacing: -0.02em;
     }
@@ -61,16 +97,20 @@
       gap: 2.5rem;
       list-style: none;
     }
+
     .nav-links a {
       font-family: 'Space Mono', monospace;
       font-size: 0.7rem;
-      color: var(--gray-4);
+      color: var(--mist-3);
       text-decoration: none;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--white); }
+
+    .nav-links a:hover {
+      color: var(--mist-4);
+    }
 
     /* HERO */
     .hero {
@@ -81,17 +121,29 @@
       padding: 10rem 3rem 4rem;
       position: relative;
       overflow: hidden;
+      gap: 0.75rem;
     }
 
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('hero-bg.jpg') center center / cover no-repeat;
-      opacity: 0.55;
+      background: url('a.png') center center / cover no-repeat;
+      opacity: 0.95;
       z-index: 0;
     }
 
-    .hero > *:not(.hero-bg) {
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+          rgba(18, 14, 11, 0.62) 0%,
+          rgba(18, 14, 11, 0.38) 38%,
+          rgba(18, 14, 11, 0.74) 100%);
+      z-index: 0;
+    }
+
+    .hero>*:not(.hero-bg) {
       position: relative;
       z-index: 1;
     }
@@ -106,7 +158,7 @@
     }
 
     .hero-headline {
-      font-size: clamp(3rem, 8vw, 7.5rem);
+      font-size: clamp(2.85rem, 7.6vw, 7.125rem);
       font-weight: 700;
       line-height: 1.0;
       letter-spacing: -0.03em;
@@ -117,32 +169,32 @@
     .hero-sub {
       font-size: clamp(1rem, 2vw, 1.25rem);
       font-weight: 300;
-      color: var(--gray-4);
+      color: #eef3f8;
       max-width: 460px;
       line-height: 1.7;
+      margin-bottom: 0.5rem;
     }
 
     .hero-footer {
-      position: absolute;
-      bottom: 3rem;
-      left: 3rem;
-      right: 3rem;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+      margin-top: clamp(2rem, 10vh, 7rem);
+      width: 100%;
     }
 
     .hero-stat .stat-num {
-      font-size: 2.5rem;
+      font-size: 2.375rem;
       font-weight: 700;
       letter-spacing: -0.04em;
       line-height: 1;
     }
+
     .hero-stat .stat-label {
       font-family: 'Space Mono', monospace;
       font-size: 0.6rem;
       letter-spacing: 0.15em;
-      color: var(--gray-4);
+      color: #d2d8de;
       text-transform: uppercase;
       margin-top: 0.25rem;
     }
@@ -151,7 +203,7 @@
       font-family: 'Space Mono', monospace;
       font-size: 0.6rem;
       letter-spacing: 0.2em;
-      color: var(--gray-4);
+      color: #d2d8de;
       text-transform: uppercase;
       writing-mode: vertical-rl;
     }
@@ -188,7 +240,11 @@
       gap: 1.25rem;
       transition: background 0.2s;
     }
-    .project-card:hover { background: #050505; }
+
+    .project-card:hover {
+      background: #050505;
+    }
+
     .project-card:last-child {
       grid-column: 1 / -1;
     }
@@ -201,7 +257,7 @@
     }
 
     .project-name {
-      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-size: clamp(1.302rem, 2.79vw, 1.86rem);
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.1;
@@ -225,6 +281,7 @@
       flex-wrap: wrap;
       gap: 0.5rem;
     }
+
     .tag {
       font-family: 'Space Mono', monospace;
       font-size: 0.55rem;
@@ -248,10 +305,22 @@
       transition: opacity 0.2s;
       align-self: flex-start;
     }
-    .project-link:hover { opacity: 0.6; }
-    .project-link::after { content: '→'; }
-    .project-link--before { color: var(--gray-4); }
-    .project-link--before::after { content: ' ↗'; }
+
+    .project-link:hover {
+      opacity: 0.6;
+    }
+
+    .project-link::after {
+      content: '→';
+    }
+
+    .project-link--before {
+      color: var(--gray-4);
+    }
+
+    .project-link--before::after {
+      content: ' ↗';
+    }
 
     .project-actions {
       display: flex;
@@ -268,7 +337,7 @@
     }
 
     .about-deco {
-      font-size: clamp(6rem, 15vw, 14rem);
+      font-size: clamp(5.58rem, 13.95vw, 13.02rem);
       font-weight: 700;
       color: var(--gray-2);
       letter-spacing: -0.05em;
@@ -277,7 +346,7 @@
     }
 
     .about-content h2 {
-      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-size: clamp(1.488rem, 3.255vw, 2.325rem);
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.1;
@@ -297,18 +366,24 @@
       gap: 0;
       border: 1px solid var(--gray-2);
     }
+
     .stat-item {
       flex: 1;
       padding: 1.5rem;
       border-right: 1px solid var(--gray-2);
     }
-    .stat-item:last-child { border-right: none; }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
     .stat-item .s-num {
-      font-size: 1.75rem;
+      font-size: 1.6275rem;
       font-weight: 700;
       letter-spacing: -0.03em;
       line-height: 1;
     }
+
     .stat-item .s-label {
       font-family: 'Space Mono', monospace;
       font-size: 0.55rem;
@@ -322,6 +397,7 @@
     .contact-inner {
       max-width: 700px;
     }
+
     .contact-inner .contact-eyebrow {
       font-family: 'Space Mono', monospace;
       font-size: 0.65rem;
@@ -330,18 +406,21 @@
       text-transform: uppercase;
       margin-bottom: 1.5rem;
     }
+
     .contact-inner h2 {
-      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-size: clamp(2.325rem, 5.58vw, 4.65rem);
       font-weight: 700;
       letter-spacing: -0.03em;
       line-height: 1.0;
       margin-bottom: 3rem;
     }
+
     .contact-links {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
     }
+
     .contact-btn {
       font-family: 'Space Mono', monospace;
       font-size: 0.7rem;
@@ -356,6 +435,7 @@
       align-items: center;
       gap: 0.5rem;
     }
+
     .contact-btn:hover {
       background: var(--white);
       color: var(--black);
@@ -367,6 +447,7 @@
       border-top: 1px solid var(--gray-2);
       text-align: center;
     }
+
     footer span {
       font-family: 'Space Mono', monospace;
       font-size: 0.6rem;
@@ -381,31 +462,84 @@
       transform: translateY(24px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
+
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .fade-in.delay-1 { transition-delay: 0.1s; }
-    .fade-in.delay-2 { transition-delay: 0.2s; }
-    .fade-in.delay-3 { transition-delay: 0.3s; }
+
+    .fade-in.delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .fade-in.delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .fade-in.delay-3 {
+      transition-delay: 0.3s;
+    }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      nav { padding: 1.25rem 1.5rem; }
-      .hero { padding: 8rem 1.5rem 4rem; }
-      .hero-footer { left: 1.5rem; right: 1.5rem; bottom: 2rem; }
-      section { padding: 5rem 1.5rem; }
-      .work-grid { grid-template-columns: 1fr; }
-      .project-card:last-child { grid-column: auto; }
-      .about-inner { grid-template-columns: 1fr; gap: 1rem; }
-      .about-deco { display: none; }
-      .stats-row { flex-direction: column; }
-      .stat-item { border-right: none; border-bottom: 1px solid var(--gray-2); }
-      .stat-item:last-child { border-bottom: none; }
-      footer { padding: 2rem 1.5rem; }
+      nav {
+        padding: 1.25rem 1.5rem;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 8rem 1.5rem 3rem;
+      }
+
+      .hero-sub {
+        max-width: 100%;
+      }
+
+      .hero-footer {
+        margin-top: 2.5rem;
+      }
+
+      section {
+        padding: 5rem 1.5rem;
+      }
+
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card:last-child {
+        grid-column: auto;
+      }
+
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .about-deco {
+        display: none;
+      }
+
+      .stats-row {
+        flex-direction: column;
+      }
+
+      .stat-item {
+        border-right: none;
+        border-bottom: 1px solid var(--gray-2);
+      }
+
+      .stat-item:last-child {
+        border-bottom: none;
+      }
+
+      footer {
+        padding: 2rem 1.5rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- NAV -->
@@ -423,7 +557,8 @@
     <div class="hero-bg"></div>
     <p class="hero-label fade-in">Designer &nbsp;·&nbsp; Developer &nbsp;·&nbsp; Builder &nbsp;·&nbsp; Tampa Bay, FL</p>
     <h1 class="hero-headline fade-in delay-1">One person.<br>The whole product.</h1>
-    <p class="hero-sub fade-in delay-2">Design, code, and deployment — no agency, no team, no waiting. One person handles it all, from first idea to live product.</p>
+    <p class="hero-sub fade-in delay-2">Design, code, and deployment — no agency, no team, no waiting. One person
+      handles it all, from first idea to live product.</p>
     <div class="hero-footer">
       <div class="hero-stat fade-in delay-3">
         <div class="stat-num">03</div>
@@ -442,7 +577,8 @@
         <span class="project-num">01</span>
         <h3 class="project-name">Copperleaf Lawn<br>&amp; Landscape</h3>
         <hr class="project-divider" />
-        <p class="project-desc">A complete website redesign for a lawn care company in Tampa Bay. Clean layout, fast load, easy to navigate on mobile — the kind of site that makes customers call.</p>
+        <p class="project-desc">A complete website redesign for a lawn care company in Tampa Bay. Clean layout, fast
+          load, easy to navigate on mobile — the kind of site that makes customers call.</p>
         <div class="project-tags">
           <span class="tag">Lawn Care</span>
           <span class="tag">Mobile-Ready</span>
@@ -450,7 +586,8 @@
         </div>
         <div class="project-actions">
           <a href="https://statimops-coder.github.io/copperleaf-demo/" target="_blank" class="project-link">New Site</a>
-          <a href="https://copperleaflawncareservices.com" target="_blank" class="project-link project-link--before">Original</a>
+          <a href="https://copperleaflawncareservices.com" target="_blank"
+            class="project-link project-link--before">Original</a>
         </div>
       </div>
 
@@ -458,7 +595,8 @@
         <span class="project-num">02</span>
         <h3 class="project-name">Rosenthal<br>Chiropractic</h3>
         <hr class="project-divider" />
-        <p class="project-desc">A professional website for a chiropractic clinic. Designed to build trust fast — clear services, easy booking, and a look that matches the quality of the care they provide.</p>
+        <p class="project-desc">A professional website for a chiropractic clinic. Designed to build trust fast — clear
+          services, easy booking, and a look that matches the quality of the care they provide.</p>
         <div class="project-tags">
           <span class="tag">Healthcare</span>
           <span class="tag">Professional</span>
@@ -474,7 +612,8 @@
         <span class="project-num">03</span>
         <h3 class="project-name">Every Rose Psychiatry</h3>
         <hr class="project-divider" />
-        <p class="project-desc">A calm, welcoming website for a psychiatric practice. Patients need to feel safe before they even call — this design does that. Clean, warm, and fully mobile-responsive.</p>
+        <p class="project-desc">A calm, welcoming website for a psychiatric practice. Patients need to feel safe before
+          they even call — this design does that. Clean, warm, and fully mobile-responsive.</p>
         <div class="project-tags">
           <span class="tag">Mental Health</span>
           <span class="tag">Welcoming</span>
@@ -482,7 +621,8 @@
         </div>
         <div class="project-actions">
           <a href="https://statimops-coder.github.io/every-rose-demo/" target="_blank" class="project-link">New Site</a>
-          <a href="https://everyrosepsychiatry.com" target="_blank" class="project-link project-link--before">Original</a>
+          <a href="https://everyrosepsychiatry.com" target="_blank"
+            class="project-link project-link--before">Original</a>
         </div>
       </div>
 
@@ -496,8 +636,11 @@
       <div class="about-deco fade-in">HL</div>
       <div class="about-content">
         <h2 class="fade-in">Not a designer.<br>Not a developer.<br>Both.</h2>
-        <p class="fade-in delay-1">I'm Hernan Lopez, based in Largo, Florida. I build complete digital products — from the first mockup to the live URL. Design, frontend, backend, deployment. One person, one price, one point of contact.</p>
-        <p class="fade-in delay-2" style="margin-top:-1rem;">A single focused builder moves faster and builds sharper than a 5-person agency. That's the bet I'm making — and the results are below.</p>
+        <p class="fade-in delay-1">I'm Hernan Lopez, based in Largo, Florida. I build complete digital products — from
+          the first mockup to the live URL. Design, frontend, backend, deployment. One person, one price, one point of
+          contact.</p>
+        <p class="fade-in delay-2" style="margin-top:-1rem;">A single focused builder moves faster and builds sharper
+          than a 5-person agency. That's the bet I'm making — and the results are below.</p>
         <div class="stats-row fade-in delay-3">
           <div class="stat-item">
             <div class="s-num">03</div>
@@ -521,10 +664,14 @@
     <div class="contact-inner">
       <p class="contact-eyebrow fade-in">Got a project? A problem? An idea?</p>
       <h2 class="fade-in delay-1">Let's build<br>the whole thing.</h2>
-      <p class="fade-in delay-2" style="color:var(--gray-4); font-size:1rem; margin-bottom:2.5rem; max-width:420px; line-height:1.7;">Tell me what you need. I'll figure out how to build it — design, code, and all. No agency. No middleman. Just results.</p>
+      <p class="fade-in delay-2"
+        style="color:var(--gray-4); font-size:1rem; margin-bottom:2.5rem; max-width:420px; line-height:1.7;">Tell me
+        what you need. I'll figure out how to build it — design, code, and all. No agency. No middleman. Just results.
+      </p>
       <div class="contact-links fade-in delay-3">
         <a href="mailto:nan.dev.ops@gmail.com" class="contact-btn">Send an Email →</a>
-        <a href="https://www.linkedin.com/in/hernan-lopez-ab1575328" target="_blank" class="contact-btn">Connect on LinkedIn →</a>
+        <a href="https://www.linkedin.com/in/hernan-lopez-ab1575328" target="_blank" class="contact-btn">Connect on
+          LinkedIn →</a>
       </div>
     </div>
   </section>
@@ -561,4 +708,5 @@
   </script>
 
 </body>
+
 </html>
