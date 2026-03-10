@@ -315,6 +315,92 @@
       opacity: 0.6;
     }
 
+    /* EXPANDABLE DETAIL */
+    .project-row.expandable {
+      cursor: pointer;
+    }
+
+    .project-row.expandable .pr-name::after {
+      content: ' +';
+      font-weight: 300;
+      color: var(--gray-3);
+      font-size: 0.8rem;
+      transition: transform 0.3s;
+    }
+
+    .project-row.expandable.open .pr-name::after {
+      content: ' −';
+    }
+
+    .project-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      border-bottom: 1px solid var(--gray-2);
+      padding: 0 0 0 50px;
+    }
+
+    .project-detail.open {
+      max-height: 800px;
+      padding: 1.5rem 0 2rem 50px;
+    }
+
+    .detail-intro {
+      font-size: 0.9rem;
+      color: var(--gray-4);
+      line-height: 1.7;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-cost {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--gray-5);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-subtitle {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      margin-bottom: 0.75rem;
+    }
+
+    .detail-text {
+      font-size: 0.85rem;
+      color: var(--gray-4);
+      line-height: 1.7;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-uses {
+      list-style: none;
+      padding: 0;
+    }
+
+    .detail-uses li {
+      font-size: 0.85rem;
+      color: var(--gray-4);
+      line-height: 1.6;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(42, 36, 29, 0.5);
+    }
+
+    .detail-uses li:last-child {
+      border-bottom: none;
+    }
+
+    .detail-uses strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
     /* TECH STACK */
     .stack-grid {
       display: grid;
@@ -606,7 +692,7 @@
         <span class="work-header-count">02 Projects</span>
       </div>
 
-      <div class="project-row">
+      <div class="project-row expandable" onclick="toggleDetail(this)">
         <span class="pr-num">01</span>
         <div>
           <div class="pr-name">Statim HQ</div>
@@ -622,6 +708,26 @@
         </div>
         <span class="pr-desc">Always-on AI operations platform. Multi-model orchestration, Discord automation, cron scheduling, and automated pipelines — running 24/7 on a home server.</span>
         <span></span>
+      </div>
+
+      <div class="project-detail" id="detail-statim">
+        <p class="detail-intro">A personal AI operations platform I built and run 24/7 on a Mac Mini home server. It handles tasks across my entire workflow — from managing my finances to generating business leads.</p>
+        
+        <div class="detail-cost">Monthly cost: ~$250/mo</div>
+
+        <p class="detail-subtitle">How it works</p>
+        <p class="detail-text">A central agent (Claude Opus) acts as the brain — making decisions, delegating tasks, and managing memory across sessions. Specialized models handle the bulk work. The system runs autonomously, checks in via heartbeats, and alerts me only when something needs my attention.</p>
+
+        <p class="detail-subtitle">What I use it for</p>
+        <ul class="detail-uses">
+          <li><strong>Secretary</strong> — Manages my schedule, reminders, daily briefings, and email triage</li>
+          <li><strong>Brainstorm</strong> — On-demand ideation partner for projects, pitches, and problem-solving</li>
+          <li><strong>Finances</strong> — Tracks bills, due dates, cash flow alerts, and budget analysis</li>
+          <li><strong>Lead Pipeline</strong> — Researches prospects, tells me what I could do about them, drafts outreach emails, tracks CRM status</li>
+          <li><strong>X Digest</strong> — I hate wasting time on X, but it's necessary — so Statim scrolls through my feed and summarizes the relevant stuff daily</li>
+          <li><strong>Sentinel</strong> — I'm a geopolitics freak, so it flags anything worth keeping an eye on</li>
+          <li><strong>Research</strong> — Deep dives on any topic with web search, source extraction, and summarized reports. It literally eats gigabytes of data before I take an informed decision</li>
+        </ul>
       </div>
 
       <div class="project-row">
@@ -786,6 +892,17 @@
     setTimeout(() => {
       document.querySelectorAll('.hero .fade-in').forEach(el => el.classList.add('visible'));
     }, 100);
+
+    // Expandable project detail
+    function toggleDetail(row) {
+      const detail = row.nextElementSibling;
+      while (detail && !detail.classList.contains('project-detail')) {
+        detail = detail.nextElementSibling;
+      }
+      if (!detail) return;
+      row.classList.toggle('open');
+      detail.classList.toggle('open');
+    }
   </script>
 
 </body>
