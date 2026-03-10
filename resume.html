@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hernan Lopez — Resume</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  @page { size: letter; margin: 0.6in 0.7in; }
+  
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.6in 0.7in;
+  }
+
+  h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  .contact-line {
+    font-family: 'Space Mono', monospace;
+    font-size: 8pt;
+    color: #555;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+
+  .contact-line a { color: #555; text-decoration: none; }
+  .contact-line a:hover { text-decoration: underline; }
+
+  .section-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 8pt;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #888;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 4px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+  }
+
+  .summary {
+    font-size: 10pt;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .project { margin-bottom: 12px; }
+  
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .project-name {
+    font-weight: 700;
+    font-size: 10.5pt;
+  }
+
+  .project-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 7.5pt;
+    color: #888;
+  }
+
+  .project-desc {
+    font-size: 9.5pt;
+    color: #444;
+    margin-top: 2px;
+  }
+
+  .project-tags {
+    font-family: 'Space Mono', monospace;
+    font-size: 7.5pt;
+    color: #777;
+    margin-top: 2px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 24px;
+    font-size: 9.5pt;
+  }
+
+  .skill-category {
+    font-weight: 500;
+    color: #1a1a1a;
+  }
+
+  .skill-items {
+    color: #555;
+  }
+
+  .edu-item { margin-bottom: 8px; }
+  
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .edu-name { font-weight: 700; font-size: 10pt; }
+  
+  .edu-school { font-size: 9.5pt; color: #555; }
+  
+  .edu-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 7.5pt;
+    color: #888;
+  }
+
+  .lang-line { font-size: 9.5pt; }
+
+  ul { padding-left: 16px; }
+  li { font-size: 9.5pt; color: #444; margin-bottom: 2px; }
+
+  @media print {
+    body { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Hernan Lopez</h1>
+<div class="contact-line">
+  Largo, FL &nbsp;·&nbsp; (786) 898-1469 &nbsp;·&nbsp; 
+  <a href="mailto:hernann1501@gmail.com">hernann1501@gmail.com</a> &nbsp;·&nbsp; 
+  <a href="https://www.linkedin.com/in/hernan-lopez-ab1575328">LinkedIn</a> &nbsp;·&nbsp;
+  <a href="https://statimops-coder.github.io/hernan-portfolio/">Portfolio</a>
+</div>
+
+<div class="section-title">Summary</div>
+<p class="summary">
+  Bilingual IT student and self-taught developer with hands-on experience building web applications, backend APIs, and AI automation systems. Currently pursuing an Associate's in IT at Keiser University while independently shipping production software. Strong foundation in Linux, Python, JavaScript, and cloud infrastructure. Authorized to work in the US.
+</p>
+
+<div class="section-title">Projects</div>
+
+<div class="project">
+  <div class="project-header">
+    <span class="project-name">Statim HQ — AI Agent Platform</span>
+    <span class="project-meta">2025 – Present</span>
+  </div>
+  <p class="project-desc">Self-built AI operations platform running 24/7 on a Mac Mini home server.</p>
+  <ul>
+    <li>Orchestrates multiple AI models (Claude, GPT, Grok, Minimax) via API integration</li>
+    <li>Built Discord bot automation with cron scheduling, automated alerts, and multi-channel workflows</li>
+    <li>Developed automated lead generation pipeline with web scraping, email outreach, and CRM tracking</li>
+    <li>Managed infrastructure with Tailscale VPN, launchd services, and PostgreSQL</li>
+  </ul>
+  <div class="project-tags">Python · Shell · AI/ML · Discord API · PostgreSQL · Tailscale</div>
+</div>
+
+<div class="project">
+  <div class="project-header">
+    <span class="project-name">Schedule API — RESTful Backend</span>
+    <span class="project-meta">2026</span>
+  </div>
+  <p class="project-desc">Full REST API for personal schedule management with revision-controlled updates.</p>
+  <ul>
+    <li>Built with Go and PostgreSQL, deployed on home server</li>
+    <li>Implements day themes, time blocks, and optimistic concurrency via expected_revision</li>
+    <li>Secured with token authentication and Tailscale networking</li>
+  </ul>
+  <div class="project-tags">Go · PostgreSQL · REST · Auth · Tailscale</div>
+</div>
+
+<div class="project">
+  <div class="project-header">
+    <span class="project-name">Client Web Projects (3 sites)</span>
+    <span class="project-meta">2026</span>
+  </div>
+  <p class="project-desc">Designed and built complete websites for local Tampa Bay businesses.</p>
+  <ul>
+    <li>Copperleaf Lawn & Landscape — full redesign with mobile-first responsive layout</li>
+    <li>Rosenthal Chiropractic — professional healthcare site with booking integration</li>
+    <li>Every Rose Psychiatry — calming, accessible mental health practice site</li>
+  </ul>
+  <div class="project-tags">HTML · CSS · JavaScript · Responsive Design · SEO</div>
+</div>
+
+<div class="section-title">Technical Skills</div>
+<div class="skills-grid">
+  <div><span class="skill-category">Languages:</span> <span class="skill-items">Python, JavaScript, HTML/CSS, SQL, Bash</span></div>
+  <div><span class="skill-category">Infrastructure:</span> <span class="skill-items">Linux, AWS, Docker, Tailscale, Git</span></div>
+  <div><span class="skill-category">Databases:</span> <span class="skill-items">PostgreSQL, SQLite</span></div>
+  <div><span class="skill-category">Tools:</span> <span class="skill-items">AI/ML APIs, Discord API, Node.js, REST APIs</span></div>
+</div>
+
+<div class="section-title">Education</div>
+<div class="edu-item">
+  <div class="edu-header">
+    <span class="edu-name">Associate's Degree in IT</span>
+    <span class="edu-date">Oct 2025 – Present</span>
+  </div>
+  <div class="edu-school">Keiser University · Clearwater, FL</div>
+</div>
+
+<div class="section-title">Languages</div>
+<p class="lang-line"><strong>Spanish</strong> — Fluent &nbsp;·&nbsp; <strong>English</strong> — Intermediate (professional working proficiency)</p>
+
+</body>
+</html>
