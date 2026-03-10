@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hernan Lopez — Designer, Developer, Builder</title>
+  <title>Hernan Lopez — IT Student, Developer, Builder</title>
   <meta name="description"
-    content="Design, development, deployment — one person, one price. Hernan Lopez builds complete digital products for businesses in Tampa Bay." />
+    content="Hernan Lopez is an IT student and developer in Largo, Florida building websites, backend APIs, and AI automation platforms." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -328,6 +328,39 @@
       align-items: center;
     }
 
+    /* TECH STACK */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--gray-2);
+      border: 1px solid var(--gray-2);
+    }
+
+    .stack-card {
+      background: var(--black);
+      border: 1px solid transparent;
+      min-height: 120px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-end;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .stack-card:hover {
+      background: #050505;
+      border-color: var(--gray-3);
+    }
+
+    .stack-name {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: var(--gray-4);
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
     /* ABOUT */
     .about-inner {
       display: grid;
@@ -511,6 +544,14 @@
         grid-column: auto;
       }
 
+      .stack-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-card {
+        min-height: auto;
+      }
+
       .about-inner {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -561,7 +602,7 @@
       handles it all, from first idea to live product.</p>
     <div class="hero-footer">
       <div class="hero-stat fade-in delay-3">
-        <div class="stat-num">03</div>
+        <div class="stat-num">05</div>
         <div class="stat-label">Sites Built</div>
       </div>
       <div class="scroll-cue">Scroll</div>
@@ -626,6 +667,54 @@
         </div>
       </div>
 
+      <div class="project-card fade-in delay-3">
+        <span class="project-num">04</span>
+        <h3 class="project-name">Statim HQ<br>AI Agent Platform</h3>
+        <hr class="project-divider" />
+        <p class="project-desc">A self-built AI operations platform running 24/7 on a Mac Mini server. Multi-model
+          orchestration (Claude, GPT, Grok, Minimax), Discord bot automation, cron scheduling, automated lead
+          generation, all wired together with Python and shell scripts.</p>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">AI/ML</span>
+          <span class="tag">DevOps</span>
+          <span class="tag">Automation</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in delay-3">
+        <span class="project-num">05</span>
+        <h3 class="project-name">Schedule API</h3>
+        <hr class="project-divider" />
+        <p class="project-desc">A RESTful scheduling API built with Go and PostgreSQL. Handles day themes, time
+          blocks, and revision-controlled updates. Deployed on a home server with Tailscale networking.</p>
+        <div class="project-tags">
+          <span class="tag">Go</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">REST API</span>
+          <span class="tag">Backend</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section id="stack">
+    <p class="section-label fade-in">Tech Stack</p>
+    <div class="stack-grid">
+      <div class="stack-card fade-in"><span class="stack-name">Python</span></div>
+      <div class="stack-card fade-in delay-1"><span class="stack-name">JavaScript</span></div>
+      <div class="stack-card fade-in delay-2"><span class="stack-name">HTML/CSS</span></div>
+      <div class="stack-card fade-in delay-3"><span class="stack-name">Linux/Bash</span></div>
+      <div class="stack-card fade-in"><span class="stack-name">Git</span></div>
+      <div class="stack-card fade-in delay-1"><span class="stack-name">SQL</span></div>
+      <div class="stack-card fade-in delay-2"><span class="stack-name">AWS</span></div>
+      <div class="stack-card fade-in delay-3"><span class="stack-name">Go</span></div>
+      <div class="stack-card fade-in"><span class="stack-name">AI Tools</span></div>
+      <div class="stack-card fade-in delay-1"><span class="stack-name">WordPress</span></div>
+      <div class="stack-card fade-in delay-2"><span class="stack-name">Node.js</span></div>
+      <div class="stack-card fade-in delay-3"><span class="stack-name">Docker</span></div>
     </div>
   </section>
 
@@ -635,20 +724,20 @@
     <div class="about-inner">
       <div class="about-deco fade-in">HL</div>
       <div class="about-content">
-        <h2 class="fade-in">Not a designer.<br>Not a developer.<br>Both.</h2>
-        <p class="fade-in delay-1">I'm Hernan Lopez, based in Largo, Florida. I build complete digital products — from
-          the first mockup to the live URL. Design, frontend, backend, deployment. One person, one price, one point of
-          contact.</p>
-        <p class="fade-in delay-2" style="margin-top:-1rem;">A single focused builder moves faster and builds sharper
-          than a 5-person agency. That's the bet I'm making — and the results are below.</p>
+        <h2 class="fade-in">IT student.<br>Developer.<br>Builder.</h2>
+        <p class="fade-in delay-1">I'm Hernan Lopez, based in Largo, Florida. I'm studying IT at Keiser University
+          while building real software, from full-stack web apps to backend APIs to AI automation platforms. Bilingual
+          (English/Spanish), self-taught in most of my stack, and always shipping.</p>
+        <p class="fade-in delay-2" style="margin-top:-1rem;">I don't wait for assignments to learn. I build things,
+          break them, fix them, and ship them. That's how I learn best, and the results are on this page.</p>
         <div class="stats-row fade-in delay-3">
           <div class="stat-item">
-            <div class="s-num">03</div>
+            <div class="s-num">05</div>
             <div class="s-label">Products Built</div>
           </div>
           <div class="stat-item">
-            <div class="s-num">1</div>
-            <div class="s-label">Person. Full Stack.</div>
+            <div class="s-num">IT</div>
+            <div class="s-label">Student at Keiser</div>
           </div>
           <div class="stat-item">
             <div class="s-num">FL</div>
@@ -672,6 +761,7 @@
         <a href="mailto:nan.dev.ops@gmail.com" class="contact-btn">Send an Email →</a>
         <a href="https://www.linkedin.com/in/hernan-lopez-ab1575328" target="_blank" class="contact-btn">Connect on
           LinkedIn →</a>
+        <a href="#" class="contact-btn">Download Resume ↓</a>
       </div>
     </div>
   </section>
