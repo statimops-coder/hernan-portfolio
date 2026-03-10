@@ -223,109 +223,96 @@
       margin-bottom: 4rem;
     }
 
-    /* WORK */
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--gray-2);
-      border: 1px solid var(--gray-2);
+    /* WORK — Stacked Sections */
+    .work-section {
+      margin-bottom: 4rem;
     }
 
-    .project-card {
-      background: var(--black);
-      padding: 2.5rem;
+    .work-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .work-header {
       display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--gray-2);
+      padding-bottom: 1rem;
+    }
+
+    .work-header-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .work-header-count {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--gray-3);
+      text-transform: uppercase;
+    }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: 50px 200px 1fr auto;
+      gap: 2rem;
+      align-items: baseline;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--gray-2);
       transition: background 0.2s;
     }
 
-    .project-card:hover {
-      background: #050505;
+    .project-row:hover {
+      background: rgba(255,255,255,0.01);
     }
 
-    .project-card:last-child {
-      grid-column: 1 / -1;
-    }
-
-    .project-num {
+    .pr-num {
       font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       color: var(--gray-3);
-      letter-spacing: 0.1em;
     }
 
-    .project-name {
-      font-size: clamp(1.302rem, 2.79vw, 1.86rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
+    .pr-name {
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.3;
     }
 
-    .project-divider {
-      height: 1px;
-      background: var(--gray-2);
-      border: none;
-    }
-
-    .project-desc {
-      font-size: 0.9rem;
-      color: var(--gray-4);
-      line-height: 1.6;
-      flex: 1;
-    }
-
-    .project-tags {
+    .pr-tags {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.3rem;
+      margin-top: 0.35rem;
     }
 
-    .tag {
+    .pr-tag {
       font-family: 'Space Mono', monospace;
-      font-size: 0.55rem;
-      letter-spacing: 0.1em;
-      color: var(--gray-4);
-      border: 1px solid var(--gray-3);
-      padding: 0.3rem 0.6rem;
+      font-size: 0.5rem;
+      letter-spacing: 0.08em;
+      color: var(--gray-3);
       text-transform: uppercase;
     }
 
-    .project-link {
+    .pr-desc {
+      font-size: 0.85rem;
+      color: var(--gray-4);
+      line-height: 1.55;
+    }
+
+    .pr-link {
       font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       letter-spacing: 0.1em;
-      color: var(--white);
+      text-transform: uppercase;
+      color: var(--gray-5);
       text-decoration: none;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      white-space: nowrap;
       transition: opacity 0.2s;
-      align-self: flex-start;
     }
 
-    .project-link:hover {
+    .pr-link:hover {
       opacity: 0.6;
-    }
-
-    .project-link::after {
-      content: '→';
-    }
-
-    .project-link--before {
-      color: var(--gray-4);
-    }
-
-    .project-link--before::after {
-      content: ' ↗';
-    }
-
-    .project-actions {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
     }
 
     /* TECH STACK */
@@ -536,12 +523,13 @@
         padding: 5rem 1.5rem;
       }
 
-      .work-grid {
+      .project-row {
         grid-template-columns: 1fr;
+        gap: 0.5rem;
       }
 
-      .project-card:last-child {
-        grid-column: auto;
+      .pr-num {
+        display: none;
       }
 
       .stack-grid {
@@ -611,85 +599,99 @@
   <!-- WORK -->
   <section id="work">
     <p class="section-label fade-in">Projects</p>
-    <div class="work-grid">
 
-      <div class="project-card fade-in">
-        <span class="project-num">01</span>
-        <h3 class="project-name">Copperleaf Lawn<br>&amp; Landscape</h3>
-        <hr class="project-divider" />
-        <p class="project-desc">Full website redesign for a Tampa Bay lawn care company. Mobile-first responsive layout, optimized load times, and clear service navigation.</p>
-        <div class="project-tags">
-          <span class="tag">Lawn Care</span>
-          <span class="tag">Mobile-Ready</span>
-          <span class="tag">Local Business</span>
-        </div>
-        <div class="project-actions">
-          <a href="https://statimops-coder.github.io/copperleaf-demo/" target="_blank" class="project-link">New Site</a>
-          <a href="https://copperleaflawncareservices.com" target="_blank"
-            class="project-link project-link--before">Original</a>
-        </div>
+    <div class="work-section fade-in">
+      <div class="work-header">
+        <span class="work-header-name">Backend & Automation</span>
+        <span class="work-header-count">02 Projects</span>
       </div>
 
-      <div class="project-card fade-in delay-1">
-        <span class="project-num">02</span>
-        <h3 class="project-name">Rosenthal<br>Chiropractic</h3>
-        <hr class="project-divider" />
-        <p class="project-desc">Professional healthcare site for a chiropractic clinic. Clean service layout, booking integration, and a design built to establish trust quickly.</p>
-        <div class="project-tags">
-          <span class="tag">Healthcare</span>
-          <span class="tag">Professional</span>
-          <span class="tag">Trust-Focused</span>
+      <div class="project-row">
+        <span class="pr-num">01</span>
+        <div>
+          <div class="pr-name">Statim HQ</div>
+          <div class="pr-tags">
+            <span class="pr-tag">Python</span>
+            <span class="pr-tag">·</span>
+            <span class="pr-tag">AI/ML</span>
+            <span class="pr-tag">·</span>
+            <span class="pr-tag">DevOps</span>
+            <span class="pr-tag">·</span>
+            <span class="pr-tag">Automation</span>
+          </div>
         </div>
-        <div class="project-actions">
-          <a href="https://statimops-coder.github.io/rosenthal-demo/" target="_blank" class="project-link">New Site</a>
-          <a href="https://mrschiro.com" target="_blank" class="project-link project-link--before">Original</a>
-        </div>
+        <span class="pr-desc">Always-on AI operations platform. Multi-model orchestration, Discord automation, cron scheduling, and automated pipelines — running 24/7 on a home server.</span>
+        <span></span>
       </div>
 
-      <div class="project-card fade-in delay-2">
-        <span class="project-num">03</span>
-        <h3 class="project-name">Every Rose Psychiatry</h3>
-        <hr class="project-divider" />
-        <p class="project-desc">Accessible, mobile-responsive site for a psychiatric practice. Designed with patient comfort in mind — warm colors, clear information hierarchy, and easy contact flow.</p>
-        <div class="project-tags">
-          <span class="tag">Mental Health</span>
-          <span class="tag">Welcoming</span>
-          <span class="tag">Mobile-Ready</span>
+      <div class="project-row">
+        <span class="pr-num">02</span>
+        <div>
+          <div class="pr-name">Schedule API</div>
+          <div class="pr-tags">
+            <span class="pr-tag">Go</span>
+            <span class="pr-tag">·</span>
+            <span class="pr-tag">PostgreSQL</span>
+            <span class="pr-tag">·</span>
+            <span class="pr-tag">REST</span>
+          </div>
         </div>
-        <div class="project-actions">
-          <a href="https://statimops-coder.github.io/every-rose-demo/" target="_blank" class="project-link">New Site</a>
-          <a href="https://everyrosepsychiatry.com" target="_blank"
-            class="project-link project-link--before">Original</a>
-        </div>
+        <span class="pr-desc">RESTful backend for schedule management. Token auth, optimistic concurrency control, deployed over Tailscale VPN.</span>
+        <span></span>
       </div>
-
-      <div class="project-card fade-in delay-3">
-        <span class="project-num">04</span>
-        <h3 class="project-name">Statim HQ<br>AI Agent Platform</h3>
-        <hr class="project-divider" />
-        <p class="project-desc">Always-on AI operations platform running on a home Mac Mini server. Orchestrates multiple LLM APIs, automates Discord workflows via cron jobs, and powers an automated lead generation pipeline — all built with Python and Bash.</p>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">AI/ML</span>
-          <span class="tag">DevOps</span>
-          <span class="tag">Automation</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-in delay-3">
-        <span class="project-num">05</span>
-        <h3 class="project-name">Schedule API</h3>
-        <hr class="project-divider" />
-        <p class="project-desc">RESTful backend for schedule management. Built with Go and PostgreSQL, featuring token auth, optimistic concurrency control, and deployed over Tailscale VPN.</p>
-        <div class="project-tags">
-          <span class="tag">Go</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">REST API</span>
-          <span class="tag">Backend</span>
-        </div>
-      </div>
-
     </div>
+
+    <div class="work-section fade-in delay-1">
+      <div class="work-header">
+        <span class="work-header-name">Frontend & Design</span>
+        <span class="work-header-count">03 Projects</span>
+      </div>
+
+      <div class="project-row">
+        <span class="pr-num">01</span>
+        <div>
+          <div class="pr-name">Copperleaf Lawn & Landscape</div>
+          <div class="pr-tags">
+            <span class="pr-tag">HTML/CSS</span>
+            <span class="pr-tag">·</span>
+            <span class="pr-tag">Responsive</span>
+            <span class="pr-tag">·</span>
+            <span class="pr-tag">SEO</span>
+          </div>
+        </div>
+        <span class="pr-desc">Full redesign for a Tampa Bay lawn care company. Mobile-first, optimized load times, clear service navigation.</span>
+        <a href="https://statimops-coder.github.io/copperleaf-demo/" target="_blank" class="pr-link">View Site →</a>
+      </div>
+
+      <div class="project-row">
+        <span class="pr-num">02</span>
+        <div>
+          <div class="pr-name">Rosenthal Chiropractic</div>
+          <div class="pr-tags">
+            <span class="pr-tag">Healthcare</span>
+            <span class="pr-tag">·</span>
+            <span class="pr-tag">JavaScript</span>
+          </div>
+        </div>
+        <span class="pr-desc">Professional healthcare site with booking integration. Clean layout built to establish trust quickly.</span>
+        <a href="https://statimops-coder.github.io/rosenthal-demo/" target="_blank" class="pr-link">View Site →</a>
+      </div>
+
+      <div class="project-row">
+        <span class="pr-num">03</span>
+        <div>
+          <div class="pr-name">Every Rose Psychiatry</div>
+          <div class="pr-tags">
+            <span class="pr-tag">Accessibility</span>
+            <span class="pr-tag">·</span>
+            <span class="pr-tag">Mobile-First</span>
+          </div>
+        </div>
+        <span class="pr-desc">Accessible psychiatric practice site. Warm design, clear information hierarchy, easy contact flow.</span>
+        <a href="https://statimops-coder.github.io/every-rose-demo/" target="_blank" class="pr-link">View Site →</a>
+      </div>
+    </div>
+
   </section>
 
   <!-- TECH STACK -->
