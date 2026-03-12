@@ -22,17 +22,21 @@
     }
 
     :root {
-      --black: #12100d;
-      --white: #ffffff;
-      --gray-1: #1d1914;
-      --gray-2: #2a241d;
-      --gray-3: #8a7260;
-      --gray-4: #d8dce2;
-      --gray-5: #e2cba8;
-      --mist-1: #152830;
-      --mist-2: #233d47;
-      --mist-3: #d9e4ee;
-      --mist-4: #ffffff;
+      --black: #0f0b0a;
+      --section-taupe: #1c1715;
+      --panel-taupe: #2b211d;
+      --white: #f2ece6;
+      --gray-1: #171210;
+      --gray-2: #3b2d27;
+      --gray-3: #b9aaa0;
+      --gray-4: #d7b89a;
+      --gray-5: #a56a43;
+      --bronze-hover: #c18457;
+      --sage-accent: #6f7c67;
+      --mist-1: #6f7c67;
+      --mist-2: #3b2d27;
+      --mist-3: #d7b89a;
+      --mist-4: #f2ece6;
     }
 
     html {
@@ -60,10 +64,10 @@
       justify-content: space-between;
       padding: 1.5rem 3rem;
       background: linear-gradient(135deg,
-          rgba(231, 210, 179, 0.24) 0%,
-          rgba(67, 51, 34, 0.44) 52%,
-          rgba(24, 20, 16, 0.66) 100%);
-      border: 1px solid rgba(231, 210, 179, 0.32);
+          rgba(215, 184, 154, 0.16) 0%,
+          rgba(43, 33, 29, 0.88) 52%,
+          rgba(15, 11, 10, 0.92) 100%);
+      border: 1px solid rgba(215, 184, 154, 0.14);
       border-left: none;
       border-right: none;
       box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.18);
@@ -73,23 +77,154 @@
     }
 
     nav.scrolled {
-      border-color: rgba(231, 210, 179, 0.42);
+      border-color: rgba(215, 184, 154, 0.18);
       border-left: none;
       border-right: none;
       background: linear-gradient(135deg,
-          rgba(231, 210, 179, 0.28) 0%,
-          rgba(67, 51, 34, 0.5) 52%,
-          rgba(24, 20, 16, 0.72) 100%);
+          rgba(215, 184, 154, 0.18) 0%,
+          rgba(43, 33, 29, 0.92) 52%,
+          rgba(15, 11, 10, 0.96) 100%);
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.22);
     }
 
     .nav-logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.125rem;
-      color: var(--mist-4);
       text-decoration: none;
-      letter-spacing: -0.02em;
+      position: relative;
+      width: 3.25rem;
+      height: 3.25rem;
+      border-radius: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(46, 38, 33, 0.92), rgba(27, 22, 19, 0.96));
+      border: 1px solid rgba(215, 184, 154, 0.16);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -6px 12px rgba(0, 0, 0, 0.24),
+        0 10px 20px rgba(0, 0, 0, 0.16);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .nav-logo::before {
+      content: "";
+      position: absolute;
+      inset: 0.32rem;
+      border-radius: 0.8rem;
+      padding: 2px;
+      background:
+        linear-gradient(
+          125deg,
+          rgba(215, 184, 154, 0.94) 0%,
+          rgba(193, 132, 87, 0.94) 22%,
+          rgba(165, 106, 67, 0.96) 46%,
+          rgba(242, 236, 230, 0.86) 62%,
+          rgba(165, 106, 67, 0.96) 80%,
+          rgba(215, 184, 154, 0.92) 100%
+        );
+      background-size: 180% 180%;
+      animation: navGoldSheen 6s linear infinite;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.82;
+    }
+
+    .nav-logo::after {
+      content: "";
+      position: absolute;
+      inset: 0.55rem;
+      border-radius: 0.66rem;
+      background: linear-gradient(180deg, rgba(42, 35, 31, 0.96), rgba(23, 18, 16, 0.98));
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 6px 14px rgba(0, 0, 0, 0.18);
+      z-index: -1;
+    }
+
+    .nav-logo-mark {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.05em;
+      font-size: 1.18rem;
+      line-height: 0.85;
+      font-weight: 900;
+      letter-spacing: -0.14em;
+      text-transform: uppercase;
+      font-family: "Arial Black", "Helvetica Neue", sans-serif;
+    }
+
+    .nav-logo-mark > span {
+      display: inline-block;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(165, 106, 67, 0.98) 0%,
+          rgba(215, 184, 154, 0.98) 28%,
+          rgba(242, 236, 230, 0.95) 48%,
+          rgba(193, 132, 87, 0.98) 68%,
+          rgba(165, 106, 67, 0.98) 100%
+        );
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: navMetalShift 5.2s ease-in-out infinite;
+      filter: drop-shadow(0 1px 0 rgba(242, 236, 230, 0.12));
+    }
+
+    .nav-logo-mark::after {
+      content: "";
+      position: absolute;
+      inset: -0.14em -0.04em;
+      background:
+        linear-gradient(
+          90deg,
+          transparent 0%,
+          transparent 42%,
+          rgba(242, 236, 230, 0.42) 49%,
+          rgba(242, 236, 230, 0.72) 50%,
+          rgba(242, 236, 230, 0.42) 51%,
+          transparent 58%,
+          transparent 100%
+        );
+      mix-blend-mode: screen;
+      opacity: 0.72;
+      pointer-events: none;
+      animation: navMonogramFlare 4.8s ease-in-out infinite;
+    }
+
+    @keyframes navGoldSheen {
+      from {
+        background-position: 0% 50%;
+      }
+      to {
+        background-position: 180% 50%;
+      }
+    }
+
+    @keyframes navMetalShift {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes navMonogramFlare {
+      0%, 20%, 100% {
+        opacity: 0;
+        transform: translateX(-26%);
+      }
+      45%, 65% {
+        opacity: 0.72;
+        transform: translateX(26%);
+      }
     }
 
     .nav-links {
@@ -200,18 +335,75 @@
     }
 
     .scroll-cue {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
       color: #d2d8de;
+    }
+
+    .scroll-cue-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       writing-mode: vertical-rl;
+    }
+
+    .scroll-cue-line {
+      position: relative;
+      width: 1px;
+      height: 10vh;
+      min-height: 220px;
+      max-height: 420px;
+      background: rgba(242, 236, 230, 0.16);
+      overflow: hidden;
+    }
+
+    .scroll-cue-line::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 9px;
+      height: 96px;
+      background:
+        radial-gradient(circle, rgba(215, 184, 154, 0.95) 0 1.2px, transparent 1.4px) center 0 / 9px 8px repeat-y;
+      transform: translateX(-50%);
+      animation: scrollCueDots 1.9s cubic-bezier(0.16, 0.84, 0.22, 1) infinite;
+      filter: drop-shadow(0 0 10px rgba(165, 106, 67, 0.22));
+    }
+
+    @keyframes scrollCueDots {
+      0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+        background-position: center 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      75% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(76px);
+        background-position: center 56px;
+      }
     }
 
     /* SECTION SHARED */
     section {
       padding: 8rem 3rem;
       border-top: 1px solid var(--gray-2);
+    }
+
+    section:not(.hero) {
+      background: var(--section-taupe);
     }
 
     .section-label {
@@ -236,7 +428,7 @@
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      border-bottom: 1px solid var(--gray-2);
+      border-bottom: 1px solid rgba(59, 45, 39, 1);
       padding-bottom: 1rem;
     }
 
@@ -254,24 +446,195 @@
       text-transform: uppercase;
     }
 
+    .backend-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .backend-project {
+      display: block;
+      border: 1px solid rgba(59, 45, 39, 1);
+      background: rgba(28, 23, 21, 0.92);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .backend-project:hover {
+      transform: translateY(-2px);
+      border-color: rgba(165, 106, 67, 0.7);
+      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .backend-visual {
+      position: relative;
+      aspect-ratio: 1.22;
+      background: #181210;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .backend-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(215, 184, 154, 0.12), transparent 22%),
+        radial-gradient(circle at 78% 32%, rgba(165, 106, 67, 0.09), transparent 18%),
+        radial-gradient(circle at 42% 75%, rgba(193, 132, 87, 0.08), transparent 20%),
+        repeating-linear-gradient(90deg,
+          rgba(193, 132, 87, 0.028) 0px,
+          rgba(193, 132, 87, 0.028) 1px,
+          transparent 1px,
+          transparent 4px),
+        repeating-linear-gradient(0deg,
+          rgba(215, 184, 154, 0.042) 0px,
+          rgba(215, 184, 154, 0.042) 1px,
+          transparent 1px,
+          transparent 3px),
+        rgba(130, 112, 98, 0.52);
+      mix-blend-mode: screen;
+      opacity: 1;
+      transition: opacity 0.45s ease;
+      pointer-events: none;
+    }
+
+    .backend-visual::after {
+      content: "";
+      position: absolute;
+      inset: -8%;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 22% 30%, rgba(242, 236, 230, 0.16), transparent 24%),
+        radial-gradient(circle at 72% 28%, rgba(215, 184, 154, 0.13), transparent 26%),
+        radial-gradient(circle at 48% 72%, rgba(165, 106, 67, 0.14), transparent 30%);
+      filter: blur(26px);
+      opacity: 0.9;
+      transform: scale(1.08);
+      transition: opacity 0.55s ease, transform 0.9s cubic-bezier(0.16, 0.95, 0.18, 1);
+      pointer-events: none;
+    }
+
+    .backend-visual img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      filter: grayscale(1) saturate(0.35) brightness(0.82);
+      transform: scale(1.02) translateZ(0);
+      transform-origin: center center;
+      transition: filter 0.5s ease, transform 1s cubic-bezier(0.12, 0.88, 0.2, 1);
+    }
+
+    .backend-project:hover .backend-visual::before,
+    .backend-project:focus-visible .backend-visual::before,
+    .backend-project:hover .backend-visual::after,
+    .backend-project:focus-visible .backend-visual::after {
+      opacity: 0;
+    }
+
+    .backend-project:hover .backend-visual::after,
+    .backend-project:focus-visible .backend-visual::after {
+      transform: scale(1);
+    }
+
+    .backend-project:hover .backend-visual img,
+    .backend-project:focus-visible .backend-visual img {
+      filter: grayscale(0) saturate(1) brightness(1);
+      transform: scale(0.92) translateZ(0);
+    }
+
+    .backend-body {
+      display: grid;
+      grid-template-columns: 66px minmax(0, 1fr);
+      gap: 1rem;
+      padding: 1.15rem 1.2rem 1.25rem;
+      border-top: 1px solid rgba(59, 45, 39, 1);
+      align-items: start;
+    }
+
+    .backend-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.08em;
+      line-height: 0.9;
+      color: var(--gray-5);
+    }
+
+    .backend-copy {
+      min-width: 0;
+    }
+
+    .backend-title {
+      display: flex;
+      align-items: baseline;
+      gap: 0.45rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .backend-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .backend-title::after {
+      content: '+';
+      font-family: 'Space Mono', monospace;
+      font-size: 0.9rem;
+      color: var(--gray-3);
+    }
+
+    .backend-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .backend-summary {
+      color: var(--gray-3);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      max-width: 42ch;
+    }
+
+    .site-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
     .project-row {
       display: grid;
-      grid-template-columns: 50px 220px 1fr auto;
-      gap: 2rem;
-      align-items: baseline;
-      padding: 1.75rem 0;
-      border-bottom: 1px solid var(--gray-2);
+      grid-template-columns: 72px minmax(220px, 260px) minmax(0, 1fr) auto;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(59, 45, 39, 1);
       transition: background 0.2s;
     }
 
     .project-row:hover {
-      background: rgba(255,255,255,0.01);
+      background: rgba(255, 255, 255, 0.04);
     }
 
     .pr-num {
       font-family: 'Space Mono', monospace;
-      font-size: 0.8rem;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.08em;
+      line-height: 0.9;
       color: var(--gray-3);
+      align-self: center;
     }
 
     .pr-name {
@@ -280,10 +643,17 @@
       line-height: 1.3;
     }
 
+    .pr-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      padding-right: 0.5rem;
+    }
+
     .pr-tags {
       display: flex;
+      flex-wrap: wrap;
       gap: 0.3rem;
-      margin-top: 0.35rem;
     }
 
     .pr-tag {
@@ -298,6 +668,9 @@
       font-size: 0.95rem;
       color: var(--gray-4);
       line-height: 1.55;
+      border-left: 1px solid rgba(138, 114, 96, 0.28);
+      padding-left: 1.5rem;
+      max-width: 62%;
     }
 
     .pr-link {
@@ -309,6 +682,7 @@
       text-decoration: none;
       white-space: nowrap;
       transition: opacity 0.2s;
+      justify-self: end;
     }
 
     .pr-link:hover {
@@ -336,25 +710,211 @@
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s ease, padding 0.3s ease;
-      border-bottom: 1px solid var(--gray-2);
+      border-bottom: 1px solid rgba(59, 45, 39, 1);
       padding: 0 0 0 50px;
     }
 
     .project-detail.open {
-      max-height: 800px;
-      padding: 1.5rem 0 2rem 0;
+      max-height: 4200px;
+      padding: 2rem 0 2.5rem 0;
       display: flex;
       flex-direction: column;
+      align-items: stretch;
+      text-align: left;
+    }
+
+    .detail-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .detail-kicker {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+    }
+
+    .detail-heading {
+      font-size: clamp(1.75rem, 3.2vw, 2.7rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      max-width: 760px;
+      margin-bottom: 0.4rem;
+    }
+
+    .detail-lead {
+      font-size: 1rem;
+      color: var(--gray-4);
+      line-height: 1.8;
+      max-width: 720px;
+    }
+
+    .concept-card {
+      border: 1px solid rgba(59, 45, 39, 1);
+      background: rgba(51, 45, 41, 0.92);
+      overflow: hidden;
+    }
+
+    .concept-frame {
+      padding: 1.5rem;
+    }
+
+    .concept-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gray-5);
+      margin-bottom: 0.8rem;
+    }
+
+    .concept-name {
+      font-size: 1.55rem;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.8rem;
+    }
+
+    .concept-text {
+      color: var(--gray-4);
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .concept-media {
+      border: 1px solid rgba(59, 45, 39, 1);
+      background: #241c18;
+      overflow: hidden;
+      display: flex;
       align-items: center;
-      text-align: center;
+      justify-content: center;
+      padding: 1.25rem;
+    }
+
+    .concept-media img {
+      width: 70%;
+      height: auto;
+      max-height: 100%;
+      display: block;
+      object-fit: contain;
+    }
+
+    .concept-dashboard {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.1fr) minmax(0, 0.9fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .concept-dashboard .concept-media {
+      min-height: 320px;
+    }
+
+    .dashboard-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .dashboard-kpis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .kpi-card {
+      border: 1px solid rgba(59, 45, 39, 1);
+      background: rgba(61, 53, 48, 0.84);
+      padding: 1rem;
+    }
+
+    .kpi-value {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .kpi-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+    }
+
+    .dashboard-notes {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .dashboard-note {
+      border-left: 1px solid rgba(165, 106, 67, 0.5);
+      padding-left: 1rem;
+    }
+
+    .dashboard-note-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-5);
+      margin-bottom: 0.45rem;
+    }
+
+    .dashboard-note p {
+      color: var(--gray-4);
+      line-height: 1.7;
+      font-size: 0.92rem;
+    }
+
+    .concept-dashboard.is-compact .concept-media {
+      min-height: 280px;
+    }
+
+    .detail-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+      gap: 2rem;
+      align-items: stretch;
+      margin-bottom: 2rem;
+    }
+
+    .detail-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .detail-media {
+      min-height: 280px;
+      background: #000000;
+      border: 1px solid rgba(138, 114, 96, 0.28);
+      overflow: hidden;
+    }
+
+    .detail-media img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .detail-body {
+      max-width: 820px;
     }
 
     .detail-intro {
-      font-size: 1rem;
+      font-size: 1.02rem;
       color: var(--gray-4);
-      line-height: 1.7;
-      max-width: 700px;
-      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      max-width: 540px;
+      margin-bottom: 0;
     }
 
     .detail-cost {
@@ -383,25 +943,46 @@
       margin-bottom: 1.5rem;
     }
 
-    .detail-uses {
-      list-style: none;
-      padding: 0;
+    .detail-chat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      max-width: 760px;
     }
 
-    .detail-uses li {
-      font-size: 0.95rem;
+    .chat-row {
+      display: flex;
+    }
+
+    .chat-row.user {
+      justify-content: flex-start;
+    }
+
+    .chat-row.agent {
+      justify-content: flex-end;
+    }
+
+    .chat-bubble {
+      max-width: 78%;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(138, 114, 96, 0.24);
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+    .chat-row.user .chat-bubble {
+      background: rgba(42, 36, 29, 0.32);
+      color: var(--white);
+      border-radius: 1.1rem 1.1rem 1.1rem 0.3rem;
+    }
+
+    .chat-row.agent .chat-bubble {
+      background: rgba(21, 40, 48, 0.18);
       color: var(--gray-4);
-      line-height: 1.6;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid rgba(42, 36, 29, 0.5);
-      text-align: left;
+      border-radius: 1.1rem 1.1rem 0.3rem 1.1rem;
     }
 
-    .detail-uses li:last-child {
-      border-bottom: none;
-    }
-
-    .detail-uses strong {
+    .chat-bubble strong {
       color: var(--white);
       font-weight: 600;
     }
@@ -410,14 +991,14 @@
     .stack-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--gray-2);
-      border: 1px solid var(--gray-2);
+      gap: 1rem;
+      background: transparent;
+      border: none;
     }
 
     .stack-card {
-      background: var(--black);
-      border: 1px solid transparent;
+      background: rgba(51, 45, 41, 0.72);
+      border: 1px solid rgba(59, 45, 39, 1);
       min-height: 120px;
       padding: 1.5rem;
       display: flex;
@@ -425,9 +1006,14 @@
       transition: background 0.2s, border-color 0.2s;
     }
 
+    .stack-card.is-filled {
+      background: linear-gradient(135deg, rgba(76, 67, 61, 0.9), rgba(51, 45, 41, 0.96));
+      border-color: rgba(165, 106, 67, 0.55);
+    }
+
     .stack-card:hover {
-      background: #050505;
-      border-color: var(--gray-3);
+      background: rgba(76, 67, 61, 0.78);
+      border-color: rgba(193, 132, 87, 0.6);
     }
 
     .stack-name {
@@ -475,13 +1061,13 @@
     .stats-row {
       display: flex;
       gap: 0;
-      border: 1px solid var(--gray-2);
+      border: 1px solid rgba(59, 45, 39, 1);
     }
 
     .stat-item {
       flex: 1;
       padding: 1.5rem;
-      border-right: 1px solid var(--gray-2);
+      border-right: 1px solid rgba(59, 45, 39, 1);
     }
 
     .stat-item:last-child {
@@ -619,6 +1205,44 @@
         gap: 0.5rem;
       }
 
+      .backend-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .site-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .backend-body {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .pr-main,
+      .pr-desc {
+        padding-right: 0;
+        padding-left: 0;
+        border-left: none;
+      }
+
+      .project-detail.open {
+        padding: 1.5rem 0 2rem 0;
+      }
+
+      .concept-dashboard,
+      .dashboard-kpis {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-hero {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .detail-media {
+        min-height: 220px;
+      }
+
       .pr-num {
         display: none;
       }
@@ -677,13 +1301,17 @@
     <div class="hero-bg"></div>
     <p class="hero-label fade-in">IT Student &nbsp;·&nbsp; Developer &nbsp;·&nbsp; Builder &nbsp;·&nbsp; Tampa, FL</p>
     <h1 class="hero-headline fade-in delay-1">The whole stack.<br>One person.</h1>
-    <p class="hero-sub fade-in delay-2">Websites, APIs, automation systems — from idea to production. Currently studying IT at Keiser University and shipping real software on the side.</p>
+    <p class="hero-sub fade-in delay-2">Websites, APIs, automation systems — from idea to production. Currently studying
+      IT at Keiser University and shipping real software on the side.</p>
     <div class="hero-footer">
       <div class="hero-stat fade-in delay-3">
         <div class="stat-num">05</div>
         <div class="stat-label">Projects Shipped</div>
       </div>
-      <div class="scroll-cue">Scroll</div>
+      <div class="scroll-cue" aria-hidden="true">
+        <span class="scroll-cue-label">Scroll</span>
+        <span class="scroll-cue-line"></span>
+      </div>
     </div>
   </section>
 
@@ -697,58 +1325,53 @@
         <span class="work-header-count">02 Projects</span>
       </div>
 
-      <div class="project-row expandable" onclick="toggleDetail(this)">
-        <span class="pr-num">01</span>
-        <div>
-          <div class="pr-name">Statim HQ</div>
-          <div class="pr-tags">
-            <span class="pr-tag">Python</span>
-            <span class="pr-tag">·</span>
-            <span class="pr-tag">AI/ML</span>
-            <span class="pr-tag">·</span>
-            <span class="pr-tag">DevOps</span>
-            <span class="pr-tag">·</span>
-            <span class="pr-tag">Automation</span>
+      <div class="backend-gallery">
+        <a href="#" class="backend-project">
+          <div class="backend-visual">
+            <img src="abc.png" alt="Statim HQ project preview" />
           </div>
-        </div>
-        <span class="pr-desc">Always-on AI operations platform. Multi-model orchestration, Discord automation, cron scheduling, and automated pipelines — running 24/7 on a home server.</span>
-        <span></span>
-      </div>
-
-      <div class="project-detail" id="detail-statim">
-        <p class="detail-intro">A personal AI operations platform I built and run 24/7 on a Mac Mini home server. It handles tasks across my entire workflow — from managing my finances to generating business leads.</p>
-        
-        <div class="detail-cost">Monthly cost: ~$250/mo</div>
-
-        <p class="detail-subtitle">How it works</p>
-        <p class="detail-text">A central agent (Claude Opus) acts as the brain — making decisions, delegating tasks, and managing memory across sessions. Specialized models handle the bulk work. The system runs autonomously, checks in via heartbeats, and alerts me only when something needs my attention.</p>
-
-        <p class="detail-subtitle">What I use it for</p>
-        <ul class="detail-uses">
-          <li><strong>Secretary</strong> — Manages my schedule, reminders, daily briefings, and email triage</li>
-          <li><strong>Brainstorm</strong> — On-demand ideation partner for projects, pitches, and problem-solving</li>
-          <li><strong>Finances</strong> — Tracks bills, due dates, cash flow alerts, and budget analysis</li>
-          <li><strong>Lead Pipeline</strong> — Researches prospects, tells me what I could do about them, drafts outreach emails, tracks CRM status</li>
-          <li><strong>X Digest</strong> — I hate wasting time on X, but it's necessary — so Statim scrolls through my feed and summarizes the relevant stuff daily</li>
-          <li><strong>Sentinel</strong> — I'm a geopolitics freak, so it flags anything worth keeping an eye on</li>
-          <li><strong>Research</strong> — Deep dives on any topic with web search, source extraction, and summarized reports. It literally eats gigabytes of data before I take an informed decision</li>
-        </ul>
-      </div>
-
-      <div class="project-row">
-        <span class="pr-num">02</span>
-        <div>
-          <div class="pr-name">Schedule API</div>
-          <div class="pr-tags">
-            <span class="pr-tag">Go</span>
-            <span class="pr-tag">·</span>
-            <span class="pr-tag">PostgreSQL</span>
-            <span class="pr-tag">·</span>
-            <span class="pr-tag">REST</span>
+          <div class="backend-body">
+            <div class="backend-num">01</div>
+            <div class="backend-copy">
+              <div class="backend-title">
+                <div class="backend-name">Statim HQ</div>
+              </div>
+              <div class="backend-tags pr-tags">
+                <span class="pr-tag">Python</span>
+                <span class="pr-tag">·</span>
+                <span class="pr-tag">AI/ML</span>
+                <span class="pr-tag">·</span>
+                <span class="pr-tag">DevOps</span>
+                <span class="pr-tag">·</span>
+                <span class="pr-tag">Automation</span>
+              </div>
+              <p class="backend-summary">Always-on AI operations platform for recurring work, research, and decision
+                support.</p>
+            </div>
           </div>
-        </div>
-        <span class="pr-desc">RESTful backend for schedule management. Token auth, optimistic concurrency control, deployed over Tailscale VPN.</span>
-        <span></span>
+        </a>
+
+        <a href="#" class="backend-project">
+          <div class="backend-visual">
+            <img src="schedule.png" alt="Schedule macOS app project preview" />
+          </div>
+          <div class="backend-body">
+            <div class="backend-num">02</div>
+            <div class="backend-copy">
+              <div class="backend-title">
+                <div class="backend-name">Schedule macOS app</div>
+              </div>
+              <div class="backend-tags pr-tags">
+                <span class="pr-tag">SwiftUI</span>
+                <span class="pr-tag">·</span>
+                <span class="pr-tag">macOS</span>
+                <span class="pr-tag">·</span>
+                <span class="pr-tag">Productivity</span>
+              </div>
+              <p class="backend-summary">A block-based desktop scheduler with live day progress and fast edits.</p>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -758,48 +1381,71 @@
         <span class="work-header-count">03 Projects</span>
       </div>
 
-      <div class="project-row">
-        <span class="pr-num">01</span>
-        <div>
-          <div class="pr-name">Copperleaf Lawn & Landscape</div>
-          <div class="pr-tags">
-            <span class="pr-tag">HTML/CSS</span>
-            <span class="pr-tag">·</span>
-            <span class="pr-tag">Responsive</span>
-            <span class="pr-tag">·</span>
-            <span class="pr-tag">SEO</span>
+      <div class="site-gallery">
+        <a href="https://statimops-coder.github.io/copperleaf-demo/" target="_blank" class="backend-project">
+          <div class="backend-visual">
+            <img src="Copperleaf Lawn & Landscape.png" alt="Copperleaf Lawn & Landscape project preview" />
           </div>
-        </div>
-        <span class="pr-desc">Full redesign for a Tampa Bay lawn care company. Mobile-first, optimized load times, clear service navigation.</span>
-        <a href="https://statimops-coder.github.io/copperleaf-demo/" target="_blank" class="pr-link">View Site →</a>
-      </div>
+          <div class="backend-body">
+            <div class="backend-num">01</div>
+            <div class="backend-copy">
+              <div class="backend-title">
+                <div class="backend-name">Copperleaf Lawn & Landscape</div>
+              </div>
+              <div class="backend-tags pr-tags">
+                <span class="pr-tag">HTML/CSS</span>
+                <span class="pr-tag">·</span>
+                <span class="pr-tag">Responsive</span>
+                <span class="pr-tag">·</span>
+                <span class="pr-tag">SEO</span>
+              </div>
+              <p class="backend-summary">Full redesign for a Tampa Bay lawn care company with faster load times and
+                clearer service navigation.</p>
+            </div>
+          </div>
+        </a>
 
-      <div class="project-row">
-        <span class="pr-num">02</span>
-        <div>
-          <div class="pr-name">Rosenthal Chiropractic</div>
-          <div class="pr-tags">
-            <span class="pr-tag">Healthcare</span>
-            <span class="pr-tag">·</span>
-            <span class="pr-tag">JavaScript</span>
+        <a href="https://statimops-coder.github.io/rosenthal-demo/" target="_blank" class="backend-project">
+          <div class="backend-visual">
+            <img src="Rosenthal Chiropractic.png" alt="Rosenthal Chiropractic project preview" />
           </div>
-        </div>
-        <span class="pr-desc">Professional healthcare site with booking integration. Clean layout built to establish trust quickly.</span>
-        <a href="https://statimops-coder.github.io/rosenthal-demo/" target="_blank" class="pr-link">View Site →</a>
-      </div>
+          <div class="backend-body">
+            <div class="backend-num">02</div>
+            <div class="backend-copy">
+              <div class="backend-title">
+                <div class="backend-name">Rosenthal Chiropractic</div>
+              </div>
+              <div class="backend-tags pr-tags">
+                <span class="pr-tag">Healthcare</span>
+                <span class="pr-tag">·</span>
+                <span class="pr-tag">JavaScript</span>
+              </div>
+              <p class="backend-summary">Professional healthcare site with booking integration and a cleaner trust-first
+                presentation.</p>
+            </div>
+          </div>
+        </a>
 
-      <div class="project-row">
-        <span class="pr-num">03</span>
-        <div>
-          <div class="pr-name">Every Rose Psychiatry</div>
-          <div class="pr-tags">
-            <span class="pr-tag">Accessibility</span>
-            <span class="pr-tag">·</span>
-            <span class="pr-tag">Mobile-First</span>
+        <a href="https://statimops-coder.github.io/every-rose-demo/" target="_blank" class="backend-project">
+          <div class="backend-visual">
+            <img src="Every Rose Psychiatry.png" alt="Every Rose Psychiatry project preview" />
           </div>
-        </div>
-        <span class="pr-desc">Accessible psychiatric practice site. Warm design, clear information hierarchy, easy contact flow.</span>
-        <a href="https://statimops-coder.github.io/every-rose-demo/" target="_blank" class="pr-link">View Site →</a>
+          <div class="backend-body">
+            <div class="backend-num">03</div>
+            <div class="backend-copy">
+              <div class="backend-title">
+                <div class="backend-name">Every Rose Psychiatry</div>
+              </div>
+              <div class="backend-tags pr-tags">
+                <span class="pr-tag">Accessibility</span>
+                <span class="pr-tag">·</span>
+                <span class="pr-tag">Mobile-First</span>
+              </div>
+              <p class="backend-summary">Accessible psychiatric practice site with a warm tone, clear hierarchy, and
+                easy contact flow.</p>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -809,17 +1455,17 @@
   <section id="stack">
     <p class="section-label fade-in">Tech Stack</p>
     <div class="stack-grid">
-      <div class="stack-card fade-in"><span class="stack-name">Python</span></div>
+      <div class="stack-card is-filled fade-in"><span class="stack-name">Python</span></div>
       <div class="stack-card fade-in delay-1"><span class="stack-name">JavaScript</span></div>
-      <div class="stack-card fade-in delay-2"><span class="stack-name">HTML/CSS</span></div>
+      <div class="stack-card is-filled fade-in delay-2"><span class="stack-name">HTML/CSS</span></div>
       <div class="stack-card fade-in delay-3"><span class="stack-name">Linux/Bash</span></div>
       <div class="stack-card fade-in"><span class="stack-name">Git</span></div>
-      <div class="stack-card fade-in delay-1"><span class="stack-name">SQL</span></div>
+      <div class="stack-card is-filled fade-in delay-1"><span class="stack-name">SQL</span></div>
       <div class="stack-card fade-in delay-2"><span class="stack-name">AWS</span></div>
-      <div class="stack-card fade-in delay-3"><span class="stack-name">AI Tools</span></div>
-      <div class="stack-card fade-in"><span class="stack-name">Node.js</span></div>
+      <div class="stack-card is-filled fade-in delay-3"><span class="stack-name">AI Tools</span></div>
+      <div class="stack-card is-filled fade-in"><span class="stack-name">Node.js</span></div>
       <div class="stack-card fade-in delay-1"><span class="stack-name">Docker</span></div>
-      <div class="stack-card fade-in delay-2"><span class="stack-name">Networking</span></div>
+      <div class="stack-card is-filled fade-in delay-2"><span class="stack-name">Networking</span></div>
       <div class="stack-card fade-in delay-3"><span class="stack-name">REST APIs</span></div>
     </div>
   </section>
@@ -831,8 +1477,12 @@
       <div class="about-deco fade-in">HL</div>
       <div class="about-content">
         <h2 class="fade-in">Learn by building.<br>Ship by default.</h2>
-        <p class="fade-in delay-1">I'm Hernan Lopez — an IT student at Keiser University in Clearwater, FL. I spend most of my time building real software: full-stack web apps, REST APIs, and AI automation systems. Bilingual in English and Spanish. Self-taught in most of my stack.</p>
-        <p class="fade-in delay-2" style="margin-top:-1rem;">I don't study concepts in isolation — I build something with them. Every project on this page started as a problem I wanted to solve, and ended as working software.</p>
+        <p class="fade-in delay-1">I'm Hernan Lopez — an IT student at Keiser University in Clearwater, FL. I spend most
+          of my time building real software: full-stack web apps, REST APIs, and AI automation systems. Bilingual in
+          English and Spanish. Self-taught in most of my stack.</p>
+        <p class="fade-in delay-2" style="margin-top:-1rem;">I don't study concepts in isolation — I build something
+          with them. Every project on this page started as a problem I wanted to solve, and ended as working software.
+        </p>
         <div class="stats-row fade-in delay-3">
           <div class="stat-item">
             <div class="s-num">05</div>
@@ -857,7 +1507,9 @@
       <p class="contact-eyebrow fade-in">Available for work</p>
       <h2 class="fade-in delay-1">Let's connect.</h2>
       <p class="fade-in delay-2"
-        style="color:var(--gray-4); font-size:1rem; margin-bottom:2.5rem; max-width:420px; line-height:1.7;">Looking for IT, development, or technical support roles — remote or Tampa Bay area. Open to full-time, part-time, or project-based work.
+        style="color:var(--gray-4); font-size:1rem; margin-bottom:2.5rem; max-width:420px; line-height:1.7;">Looking for
+        IT, development, or technical support roles — remote or Tampa Bay area. Open to full-time, part-time, or
+        project-based work.
       </p>
       <div class="contact-links fade-in delay-3">
         <a href="mailto:nan.dev.ops@gmail.com" class="contact-btn">Send an Email →</a>
@@ -900,7 +1552,7 @@
 
     // Expandable project detail
     function toggleDetail(row) {
-      const detail = row.nextElementSibling;
+      let detail = row.nextElementSibling;
       while (detail && !detail.classList.contains('project-detail')) {
         detail = detail.nextElementSibling;
       }
