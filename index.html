@@ -1022,6 +1022,85 @@
       text-transform: uppercase;
     }
 
+    /* EXPANDABLE BACKEND CARD */
+    .backend-project.expandable-card {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .backend-project.expandable-card .expand-hint {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--gray-5);
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .backend-project.expandable-card .expand-hint::before {
+      content: '+';
+      font-size: 1rem;
+      line-height: 1;
+      transition: transform 0.3s;
+    }
+
+    .backend-project.expandable-card.open .expand-hint::before {
+      content: '−';
+    }
+
+    .backend-project.expandable-card.open .expand-hint {
+      color: var(--gray-3);
+    }
+
+    .backend-card-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+      border-top: none;
+    }
+
+    .backend-card-detail.open {
+      max-height: 2800px;
+      border-top: 1px solid rgba(59, 45, 39, 1);
+      padding: 2rem;
+    }
+
+    .backend-kpis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .statim-chat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 1.75rem;
+      max-width: 600px;
+    }
+
+    .statim-chat-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-5);
+      margin-bottom: 0.25rem;
+    }
+
+    .statim-note {
+      font-size: 0.9rem;
+      color: var(--gray-4);
+      line-height: 1.75;
+      border-left: 1px solid rgba(165, 106, 67, 0.4);
+      padding-left: 1rem;
+    }
+
     /* FADE IN */
     .fade-in {
       opacity: 0;
@@ -1195,7 +1274,7 @@
       </div>
 
       <div class="backend-gallery">
-        <a href="#" class="backend-project">
+        <div class="backend-project expandable-card" onclick="toggleCardDetail(this)">
           <div class="backend-visual">
             <img src="abc.png" alt="Statim HQ project preview" />
           </div>
@@ -1215,9 +1294,42 @@
                 <span class="pr-tag">Automation</span>
               </div>
               <p class="backend-summary">24/7 autonomous AI platform running on bare metal. 17+ scheduled agents handle lead scouting, geopolitics monitoring, finance alerts, and morning briefings — no human input required.</p>
+              <span class="expand-hint">See how it works</span>
             </div>
           </div>
-        </a>
+          <div class="backend-card-detail">
+            <div class="backend-kpis">
+              <div class="kpi-card">
+                <div class="kpi-value">17+</div>
+                <div class="kpi-label">Scheduled Jobs</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-value">24/7</div>
+                <div class="kpi-label">Runtime</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-value">10</div>
+                <div class="kpi-label">Agent Channels</div>
+              </div>
+            </div>
+            <p class="statim-chat-label">Live example — bill tracking agent</p>
+            <div class="statim-chat">
+              <div class="chat-row user">
+                <div class="chat-bubble">What bills are due this week?</div>
+              </div>
+              <div class="chat-row agent">
+                <div class="chat-bubble"><strong>3 bills in the next 7 days:</strong> Car insurance $191 (Mar 17), Car payment $250 (Mar 20), Rent $660 (Mar 22). Next paycheck arrives Mar 14. You're covered — total due: $1,101.</div>
+              </div>
+              <div class="chat-row user">
+                <div class="chat-bubble">Any new leads from the scout?</div>
+              </div>
+              <div class="chat-row agent">
+                <div class="chat-bubble">Found 2 prospects in Clearwater with outdated sites: <strong>Sunrise Dental</strong> (Wix, no mobile, 2.8★) and <strong>Bay Area HVAC</strong> (no website). Built a demo for Sunrise Dental — want me to send the pitch?</div>
+              </div>
+            </div>
+            <p class="statim-note">Built because managing leads, bills, news, and research across six tools was unsustainable. Everything runs on a Mac Mini at home — agents wake up, do their job, and go back to sleep. No cloud bill, no maintenance window, no babysitting.</p>
+          </div>
+        </div>
 
         <a href="#" class="backend-project">
           <div class="backend-visual">
@@ -1267,8 +1379,7 @@
                 <span class="pr-tag">·</span>
                 <span class="pr-tag">SEO</span>
               </div>
-              <p class="backend-summary">Full redesign for a Tampa Bay lawn care company with faster load times and
-                clearer service navigation.</p>
+              <p class="backend-summary">The original was a 2018 Wix template — no mobile layout, no trust signals, hidden services. Rebuilt from scratch with real photos, a before/after gallery, and a clear contact path.</p>
             </div>
           </div>
         </a>
@@ -1288,8 +1399,7 @@
                 <span class="pr-tag">·</span>
                 <span class="pr-tag">JavaScript</span>
               </div>
-              <p class="backend-summary">Professional healthcare site with booking integration and a cleaner trust-first
-                presentation.</p>
+              <p class="backend-summary">Existing site felt clinical and impersonal — exactly wrong for a practice where patients need to feel safe before picking up the phone. Rebuilt with warm visuals, clear trust signals, and a streamlined contact flow.</p>
             </div>
           </div>
         </a>
@@ -1309,8 +1419,7 @@
                 <span class="pr-tag">·</span>
                 <span class="pr-tag">Mobile-First</span>
               </div>
-              <p class="backend-summary">Accessible psychiatric practice site with a warm tone, clear hierarchy, and
-                easy contact flow.</p>
+              <p class="backend-summary">A psychiatric practice with an anxiety-inducing website. The irony. Rebuilt mobile-first with calm typography, soft palette, and a single clear CTA — because the design should feel like the care.</p>
             </div>
           </div>
         </a>
@@ -1418,7 +1527,7 @@
       document.querySelectorAll('.hero .fade-in').forEach(el => el.classList.add('visible'));
     }, 100);
 
-    // Expandable project detail
+    // Expandable project row (list style)
     function toggleDetail(row) {
       let detail = row.nextElementSibling;
       while (detail && !detail.classList.contains('project-detail')) {
@@ -1426,6 +1535,14 @@
       }
       if (!detail) return;
       row.classList.toggle('open');
+      detail.classList.toggle('open');
+    }
+
+    // Expandable backend card (inline panel)
+    function toggleCardDetail(card) {
+      const detail = card.querySelector('.backend-card-detail');
+      if (!detail) return;
+      card.classList.toggle('open');
       detail.classList.toggle('open');
     }
   </script>
