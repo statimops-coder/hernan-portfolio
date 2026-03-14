@@ -67,6 +67,8 @@ const GlitchText = ({ children }: { children: string }) => {
 };
 
 const Hero = () => {
+  const assetBase = import.meta.env.BASE_URL;
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-20 overflow-hidden">
       {/* Video background */}
@@ -77,7 +79,7 @@ const Hero = () => {
           loop
           playsInline
           className="w-full h-full object-cover"
-          src="/hero-video.mp4"
+          src={`${assetBase}hero-video.mp4`}
         />
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-background/60" />

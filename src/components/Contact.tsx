@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 
 const Contact = () => {
+  const assetBase = import.meta.env.BASE_URL;
+
   return (
     <section id="contact" className="px-6 md:px-12 lg:px-24 py-24 border-t border-border">
       <motion.div
@@ -32,7 +34,7 @@ const Contact = () => {
             <span>→</span>
           </a>
           <a
-            href="/hernan-lopez-resume.pdf"
+            href={`${assetBase}hernan-lopez-resume.pdf`}
             download
             className="inline-flex items-center gap-3 font-mono text-sm tracking-wider uppercase border border-border text-foreground px-6 py-3 rounded-lg hover:border-primary/50 hover:text-primary transition-colors"
           >
